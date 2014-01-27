@@ -1,10 +1,10 @@
 # Messages
 
-* **INTR** [Introduction](#introduction)
-* **GETP** [Get Peers](#get-peers)
-* **GIVP** [Give Peers](#give-peers)
-* **PING** [Ping](#ping)
-* **PONG** [Pong](#pong)
+* [Introduction](#introduction) **INTR** 
+* [Get Peers](#get-peers) **GETP** 
+* [Give Peers](#give-peers) **GIVP** 
+* [Ping](#ping) **PING** 
+* [Pong](#pong) **PONG** 
 
 All messages have a 4-byte length prefix, a 4-byte ascii-printable ID prefix, and the message body.  The 4-byte length prefix is equal to the length of the message body plus 4 for the ID prefix.
 
