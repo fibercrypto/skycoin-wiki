@@ -29,6 +29,7 @@ Port identifies the connection's listen port, which should be exchanged with oth
 At the moment, any clients with mismatched versions immediately disconnect.
 
 *TODO - Ban clients that send a message other than Introduction first*
+
 *TODO - Limit number of connections per base IP*
 
 ## Get Peers
