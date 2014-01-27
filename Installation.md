@@ -11,9 +11,9 @@ You will need:
 
 There are 3 build version of Skycoin.  
 
-* **skycoin** The desktop GUI build, which includes a node-webkit wrapper around skycoind.  This introduces an extra build step.
-* **skycoind** The headless build.  An optional web interface is exposed, to run the GUI in the browser.
-* **skycoindev** The development version of the headless build.
+* **skycoin** - The desktop GUI build, which includes a node-webkit wrapper around skycoind.  This introduces an extra build step.
+* **skycoind** - The headless build.  An optional web interface is exposed, to run the GUI in the browser.
+* **skycoindev** - The development version of the headless build.
 
 Each version is the same code but with different configuration defaults.  The GUI also relies on the node-webkit prebuilt binaries.
 
