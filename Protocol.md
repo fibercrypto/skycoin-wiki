@@ -28,7 +28,7 @@ Port identifies the connection's listen port, which should be exchanged with oth
 
 At the moment, any clients with mismatched versions immediately disconnect.
 
-*TODO - Limit number of connections per base IP*
+A maximum of 1 outgoing connection and 3 total connections are allowed per base IP.  This allows multiple nodes from the same subnet to connect to another node but prevent them from saturating the latter node's resources.
 
 ## Get Peers
 
