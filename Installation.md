@@ -38,7 +38,7 @@ cd skycoin
 Then, run the install script to set up the environment:
 
 ```
-./install.sh
+./setup.sh
 ```
 
 This script does the following:
