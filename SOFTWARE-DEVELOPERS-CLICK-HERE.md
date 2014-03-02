@@ -51,3 +51,21 @@ Blobs are used for transaction propagation across network and blobs will be used
 Given a large list of hashes on one machine, we need to be able to compare that list to a list of hashes on another machine, find the hashes that are different. Needs to use minimum amount of bandwidth and round trip packets. Something like rsync? Merkle tree?
 
 The datastructure should be quick to update as hashes are removed and inserted.
+
+=== BEP/RFC Needed: Address Messaging Service ===
+
+We want drafts of secure messaging protocols for sending asynchronous  messages to pubkeys. This protocol is for machine to machine communications, but chat and email services could be built on top of it.
+
+- want to be able to send messages to addresses or pubkeys (pubkeys are the destination address)
+- asynchronous 
+- May use PoW like Bitmessage to prevent spam
+- do not want to replicate every messages to everyone like Bitmessage
+- Messages must be stored when user is offline and user receives messages when online
+
+Components to think about
+- how to find where to send message, just using their pubkey/address
+- how messages are encoded so only recipient can read them
+- how messages are stored for user when they are offline
+
+The system does not need to be completely decentralized. It can use syndicated chat servers, which communicate with each other (like Jabber).
+
