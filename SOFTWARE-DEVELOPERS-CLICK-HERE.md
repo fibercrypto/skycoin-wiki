@@ -16,13 +16,15 @@ Add unit tests for SHA256 hashes
 
 - we need it for the darknet project
 
-=== ifconfig wrapper for wifi dongles ===
+=== golang wifi controller library ===
 
-We need method of 
-- scanning for wifi networks from golang
-- listing wifi devices
+- only needs to work on linux
+- wraps ifconfig?
+- lists wifi devices
+- scans for wifi networks from golang
 - connecting and disconnected to networks
 - connection status and speed information
+- adhoc mode support?
 
 === gnet handshake ===
 
