@@ -1,5 +1,23 @@
 This is guide for contributors. This is the road map for how you can help Skycoin.
 
+Some of these problems are very simple and require an hour. Others require designing new protocols that do not exist.
+
+=== BEP/RFC Needed: Address Messaging Service ===
+
+We want drafts of secure messaging protocols for sending asynchronous  messages to pubkeys. This protocol is for machine to machine communications, but chat and email services could be built on top of it.
+
+- want to be able to send messages to addresses or pubkeys (pubkeys are the destination address)
+- asynchronous 
+- May use PoW like Bitmessage to prevent spam
+- do not want to replicate every messages to everyone like Bitmessage
+- Messages must be stored when user is offline and user receives messages when online
+
+Components to think about
+- how to find where to send message, just using their pubkey/address
+- how messages are encoded so only recipient can read them
+- how messages are stored for user when they are offline
+
+The system does not need to be completely decentralized. It can use syndicated chat servers, which communicate with each other (like Jabber).
 === skycoin/src/coin hash function tests ===
 
 Add unit tests for SHA256 hashes
@@ -52,20 +70,4 @@ Given a large list of hashes on one machine, we need to be able to compare that 
 
 The datastructure should be quick to update as hashes are removed and inserted.
 
-=== BEP/RFC Needed: Address Messaging Service ===
-
-We want drafts of secure messaging protocols for sending asynchronous  messages to pubkeys. This protocol is for machine to machine communications, but chat and email services could be built on top of it.
-
-- want to be able to send messages to addresses or pubkeys (pubkeys are the destination address)
-- asynchronous 
-- May use PoW like Bitmessage to prevent spam
-- do not want to replicate every messages to everyone like Bitmessage
-- Messages must be stored when user is offline and user receives messages when online
-
-Components to think about
-- how to find where to send message, just using their pubkey/address
-- how messages are encoded so only recipient can read them
-- how messages are stored for user when they are offline
-
-The system does not need to be completely decentralized. It can use syndicated chat servers, which communicate with each other (like Jabber).
 
