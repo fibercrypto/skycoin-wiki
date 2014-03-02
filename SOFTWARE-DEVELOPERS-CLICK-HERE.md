@@ -16,6 +16,14 @@ Add unit tests for SHA256 hashes
 
 - we need it for the darknet project
 
+=== ifconfig wrapper for wifi dongles ===
+
+We need method of 
+- scanning for wifi networks from golang
+- listing wifi devices
+- connecting and disconnected to networks
+- connection status and speed information
+
 === gnet handshake ===
 
 Gnet is our connection pool and packet serialization library.
