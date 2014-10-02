@@ -40,7 +40,7 @@ Distributed Application Project Light. This is what we believe can be working in
 
 This approach works immediately, using an existing tool chain and is acceptable in the immediate term.
 
-* [Distributed Applications Light] (DistributedApplicationLight]
+* [Distributed Applications Light] (DistributedApplicationLight)
 
 This document overviews Skycoin distributed application architecture. This project is experimental, extremely long term and open ended. The project involves implementation and documentation of a virtual machine implementation, development of a new intermediate language , development of a new compiler and run-time environment. 
 
@@ -52,4 +52,4 @@ The objective of this project is to
 
 This project overlaps with NaCl/pNaCl, Docker, LLVM and Rose. Familiarity with assembly language, writing C compilers, source transformation tools, LLVM backend, CIL, LLVM IR and the XL programming language recommended.
 
-* [Distributed Applications Project] (DistributedApplications]
+* [Distributed Applications Project] (DistributedApplications)
