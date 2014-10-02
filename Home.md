@@ -4,7 +4,7 @@
 
 # Developer Tutorials
 
-Cipher is the Skycoin cryptography library, which standardizes operations across the Skycion project. This tutorial covers cryptographic generating private keys, public keys, addresses and encrypting data.
+Cipher is the Skycoin cryptography library, which standardizes operations across the Skycoin project. This tutorial covers cryptographic operations, such as generating private keys, public keys, deterministic addresses and encrypting data.
 * [Cipher Tutorial](cipher)
 
 This tutorial covers stealth address generation and key exchange.
