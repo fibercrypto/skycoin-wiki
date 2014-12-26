@@ -78,7 +78,7 @@ Draw a number over the dots for how many lines are adjacent to the dots.
       │     │     
 │─2─3─3─│─2 1 1 │
     │     │   │ 
-│─2─4─1 │ 2─3─3 │
+│─2─4─2─│ 2─3─3 │
     │       │ │  
 │ 1─2 2─│─2─3 1 │
       │     │    
@@ -93,14 +93,41 @@ Draw a number over the dots for how many lines are adjacent to the dots.
 └ ─ ─ ─ ┘ ─ ─ ─ ┘
 ```
 
+Take a piece of papers and draw a square, with enough room for a 3x3 grid of numbers. The spacing between the numbers should equal the width and height of the numbers (on graph paper a 5x5 grid).
+
 ```
 █████████
-█     │ █
+█░ ░ ░│░█
 █─2─3─3─█
-█   │   █
-█─2─4─1 █
-█   │   █
+█░ ░│░ ░█
+█─2─4─2─█
+█░ ░│░ ░█
 █ 1─2 2─█
-█     │ █
+█░ ░ ░│░█
 █████████
 ```
+
+Draw the grid and outline on a piece of paper. Commit the outline of a quadrant to memory.
+
+```
+█████████
+█░ ░ ░│░█
+█───┬─┴─█
+█░ ░│░ ░█
+█───┼───█
+█░ ░│░ ░█
+█ ──┘ ┌─█
+█░ ░ ░│░█
+█████████
+
+┌─────┬─┐
+│░ ░ ░│░│
+│───┬─┴─│
+│░ ░│░ ░│
+│───┼───┤
+│░ ░│░ ░│
+│ ──┘ ┌─┤
+│░ ░ ░│░│
+└─────┴─┘
+```
+
