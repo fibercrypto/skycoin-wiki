@@ -2,7 +2,12 @@
 
 * [Installation](Installation)
 
-# Developer Tutorials
+# Standards
+
+* [BrainWallet](Skycoin Standard: Brainwallet, Visual Representation)
+
+# Developer Tutorials (FINISH THIS)
+
 
 Cipher is the Skycoin cryptography library, which standardizes operations across the Skycoin project. This tutorial covers cryptographic operations, such as generating private keys, public keys, deterministic addresses and encrypting data.
 * [Cipher Tutorial](cipher)
