@@ -181,10 +181,50 @@ So
 └─────┴─┘
 ```
 
-Commit to memory
+Commit to memory the numbers and connecting dashes.
 
 ```
 2 3 3
 2 4 2
 1 2 2 
+```
+
+Now attempt to draw the quadrant from memory. 
+
+## Symbol Set
+
+### 0-ary
+
+```
+░ ░ 
+ ·  
+░ ░ 
+
+░ ░
+ 0 
+░ ░
+```
+
+### 1-ary
+
+```
+░│░  ░ ░  ░ ░  ░ ░
+ ·    ·─   ·   ─· 
+░ ░  ░ ░  ░│░  ░ ░
+
+░│░  ░ ░  ░ ░  ░ ░
+ 1    1─   1   ─1 
+░ ░  ░ ░  ░│░  ░ ░
+```
+
+### 2-ary
+
+```
+░│░  ░ ░  ░ ░  ░ ░
+ ·    ·─   ·   ─· 
+░ ░  ░ ░  ░│░  ░ ░
+
+░│░  ░ ░  ░ ░  ░ ░
+ 1    1─   1   ─1 
+░ ░  ░ ░  ░│░  ░ ░
 ```
