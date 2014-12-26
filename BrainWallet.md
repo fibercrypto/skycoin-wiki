@@ -27,7 +27,7 @@ The standard should allow a person to commit a wallet seed to paper, by hand and
 
 This is a visual standard for representing 256 bit wallet seeds in a visual format that can be committed to memory. The format is designed to be easy to remember and has built in redundancy to allow for error correction.
 
-Draw a 3"x3" square. Sub divide the square into 4 quadrants.
+Draw a 3"x3" square. Sub divide the square into 4 quadrants (in blue ink). Each quadrant will contain a 3x3 or 4x4 grid of dots in black ink.
 
 ```
 ┌ ─ ─ ─ ┐ ─ ─ ─ ┐
@@ -49,23 +49,58 @@ Draw a 3"x3" square. Sub divide the square into 4 quadrants.
 └ ─ ─ ─ ┘ ─ ─ ─ ┘
 ```
 
-Within each 
+Draw random lines between the dots (north, south, east, west), within the quadrants.
+
 ```
 ┌ ─ ─ ─ ┐ ─ ─ ─ ┐
-
-│ · · · │ · · · │
-
-│ · · · │ · · · │
-
-│ · · · │ · · · │
-
+      │     │     
+│─·─·─·─│─· · · │
+    │     │   │ 
+│─·─·─· │ ·─·─· │
+    │       │ │  
+│ ·─· ·─│─·─· · │
+      │     │    
 └ ─ ─ ─ ┘ ─ ─ ─ ┘
-
-│ · · · │ · · · │
-
-│ · · · │ · · · │
-
-│ · · · │ · · · │
-
+    |       | |     
+│─·─· · │─·─· · │
+    |       │     
+│ · ·─·─│─·─·─·─│
+      │          
+│─·─·─· │ · ·─·─│
+      │     │     
 └ ─ ─ ─ ┘ ─ ─ ─ ┘
+```
+
+Draw a number over the dots for how many lines are adjacent to the dots.
+
+```
+┌ ─ ─ ─ ┐ ─ ─ ─ ┐
+      │     │     
+│─2─3─3─│─2 1 1 │
+    │     │   │ 
+│─2─4─1 │ 2─3─3 │
+    │       │ │  
+│ 1─2 2─│─2─3 1 │
+      │     │    
+└ ─ ─ ─ ┘ ─ ─ ─ ┘
+    |       | |     
+│─2─3 0 │─2─3 1 │
+    |       │     
+│ 0 2─3─│─2─3─2─│
+      │          
+│─2─2─3 │ 0 2─2─│
+      │     │     
+└ ─ ─ ─ ┘ ─ ─ ─ ┘
+```
+
+```
+█████████
+█     │ █
+█─2─3─3─█
+█   │   █
+█─2─4─1 █
+█   │   █
+█ 1─2 2─█
+█     │ █
+█████████
 ```
