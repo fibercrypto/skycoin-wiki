@@ -24,6 +24,13 @@ Therefore we need a brain wallet standard that allows
 
 The standard should allow a person to commit a wallet seed to paper, by hand and place the seed within a safe for long term cold storage. The standard should also allow individuals to commit the seed to memory if required.
 
+## Graphical Wallet Representations
+
+This is a proposal for a wallet "sigil" format for storing deterministic wallet seeds that 
+- is easy to commit to paper by hand
+- can be committed to memory
+- has level of redundancy/error correction
+
 ## Standard Definition
 
 This is a visual standard for representing 256 bit wallet seeds in a visual format that can be committed to memory. The format is designed to be easy to remember and has built in redundancy to allow for error correction.
@@ -307,6 +314,8 @@ produces 8bd 8f7 546
 
 The hex values are concatenated and hashed, to form the deterministic wallet seed.
 
+If a password is used, the password should 
+
 ## Naive Entropy Estimates
 
 Each symbol encodes 4 bits. A 3x3 grid encodes 36 bits. Four quadrants encode 144 bits.
@@ -339,13 +348,17 @@ We could require that the number grid rows and columns add to a constant.
 1 2 2 
 ```
 
-Q4: How much entropy is lost from the representation if we require all columns and rows to add up to same number? 
+Q4: How much entropy is lost from the representation if we require all columns and rows to add up to same number? (error correction)
 
 Q5: How much entropy is lost if we require that quadrants tile? (12x12 for 3x3 quadrants), (16x16 for 4x4 quadrants). 
 
 Q6: How much entropy is lost if we require that quadrants tile and wrap.
 
-Q7: Can we put a forward error correcting code in here?
+Q8: What about requiring exactly N lines in each column or row of each quadrant? How many bits are lost here and how effective is this as a human readable error code?
+
+Q7: Can we put a forward error correcting code in here? Requiring that all rows add to same number and  number and all columns add to same number, is a form of error correction code that can be human checked.
+
+Q8: What other forms of error correction code can be checked by hand easily? 
 
 ## End Goals
 
@@ -355,7 +368,18 @@ We want variable sized, so that larger grids can be used in cold store committed
 
 ## Considerations
 
-The strength depends on the hashing algorithm used. We have hashing algorithms that are so slow, that four letter passports cannot be brute forced. 
+The strength and bit requirements depends on the hashing algorithm used and how the key needs to remain secure for. We have hashing algorithms that are so slow, that four letter passports cannot be brute forced. For storing a key for twenty years in a safe, a full 256 bits of entropy can encoded without trouble.
 
-5x5 grids may have more data. Human memory may forgot more elements of the 5x5 grid quadrants, but more bits total may be remembered. 
+For a hot wallet committed to memory, a smaller number (64 bits?) may be enough with a slow enough hashing algorithm.
 
+The combination of even a weak password as a salt and a strong hashing algorithm, allows even very small sigils to offer a good degree of security.
+
+5x5 grids may have more data. Human memory may forgot more elements of the 5x5 grid quadrants, but more bits total may be remembered. We need to empirically determine the best grid size.
+
+## Best Security Practices
+
+A person should choose a salt. The salt can be a password, a birthday, phone number, social society number or something that is unlikely to be forgotten. Does not need to be a secure password, but should be relatively unique to user. This will be hashed and then hash into the sigil hash to generate wallet (the hash will be salted). 
+
+This prevents an attacker from running through all weak 64 bit wallet sigils with a brute force attack and looting them.
+ 
+Then the user should have a set of sigils committed to memory.
