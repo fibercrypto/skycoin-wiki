@@ -315,7 +315,7 @@ produces 8bd 8f7 546
 
 The hex values are concatenated and hashed, to form the deterministic wallet seed.
 
-If a password is used, the password should 
+If a password is used, the password should hashed and used to salt the hashing of the deterministic wallet seed.
 
 ## Naive Entropy Estimates
 
