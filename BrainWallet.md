@@ -110,6 +110,16 @@ Take a piece of papers and draw a square, with enough room for a 3x3 grid of num
 Draw the grid and outline on a piece of paper. Commit the outline of a quadrant to memory.
 
 ```
+┌───────┐
+│░ ░ ░ ░│
+│ · · · │
+│░ ░ ░ ░│
+│ · · · │
+│░ ░ ░ ░│
+│ · · · │
+│░ ░ ░ ░│
+└───────┘
+
 █████████
 █░ ░ ░│░█
 █───┬─┴─█
@@ -129,5 +139,52 @@ Draw the grid and outline on a piece of paper. Commit the outline of a quadrant 
 │ ──┘ ┌─┤
 │░ ░ ░│░│
 └─────┴─┘
+
+┌─────┬─┐
+│░ ░ ░│░│
+│─·─·─·─│
+│░ ░│░ ░│
+│─·─·─·─┤
+│░ ░│░ ░│
+│ ·─· ·─┤
+│░ ░ ░│░│
+└─────┴─┘
 ```
 
+Redraw the quadrant with a number at each grid point. The number is number of lines adjacent to the dot
+
+```
+░│░    ░│░
+ ·  is  1
+░ ░    ░ ░
+
+░ ░    ░ ░
+─·─ is -2-
+░ ░    ░ ░
+
+░ ░    ░ ░
+─·─ is -3-
+░│░    ░ ░
+```
+
+So
+
+```
+┌─────┬─┐
+│░ ░ ░│░│
+│─2─3─3─│
+│░ ░│░ ░│
+│─2─4─2─┤
+│░ ░│░ ░│
+│ 1─2 2─┤
+│░ ░ ░│░│
+└─────┴─┘
+```
+
+Commit to memory
+
+```
+2 3 3
+2 4 2
+1 2 2 
+```
