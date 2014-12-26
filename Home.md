@@ -4,7 +4,7 @@
 
 # Standards
 
-* [BrainWallet](Skycoin Standard: Brainwallet, Visual Representation)
+* [Skycoin Standard: Brainwallet, Visual Representation](BrainWallet)
 
 # Developer Tutorials (FINISH THIS)
 
