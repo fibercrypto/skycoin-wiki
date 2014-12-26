@@ -4,7 +4,7 @@
 
 # Standards
 
-* [Skycoin Standard: Brainwallet](BrainWallet)
+* [Brain Wallet Sigils](Brain-Wallet-Sigils)
 Visual Representation of Deterministic Wallet Seeds
 
 # Developer Tutorials (FINISH THIS)
