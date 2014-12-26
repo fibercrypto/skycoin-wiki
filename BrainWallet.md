@@ -7,14 +7,18 @@ f399bd1b78792da9cc49b1157c73016450c949df565ce3ddbf2f9d65fd8f0dac
 
 This is difficult to commit to memory.
 - writing down wallet seeds enables easy theft or confiscation
-- printing wallet seeds is insecure as many computers save print jobs
+- printing wallet seeds is insecure as many computers save finished print jobs
+- printers will become targets hackers compromise to steal coins
 - cloud printing reports print jobs to central authority. Future printers may clandestinely save or upload print jobs to central authorities, even for local print jobs. Cloud printing going through a central server is the only option for printing from Chromebook or on the iPad.
-- printers are insecure and may be compromised or back doored
+- printers are insecure and may be compromised or backdoored.
+- printers are connected to the network and in the future will contain a full CPU and operating system. Governments will require mandatory printer backdoors for law enforcement, to enable monitoring, surveillance and as a vector for originating attacks on targets from within their network.
+- all mobile phones contain several backdoors and exploits. Pictures of private key QR codes stored on phones should not be considered secure.
 
 Therefore we need a brain wallet standard that allows 
 - wallet seeds to be committed to memory
 - is robust to errors in memory (redundancy, error correction)
-- does not rely upon computers, printers or paper
+- does not rely upon computers, cell phones or printers
+- allows wallets to optionally be committed to paper for secure long term storage
 
 The standard should allow a person to commit a wallet seed to paper, by hand and place the seed within a safe for long term cold storage. The standard should also allow individuals to commit the seed to memory if required.
 
