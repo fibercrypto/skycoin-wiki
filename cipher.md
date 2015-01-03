@@ -18,9 +18,9 @@ Cipher is based on secp256k1 and SHA256. It uses the same encryption algorithm a
 
 The package contains
 - public/private key generation
-- deterministic public/private key generation from a passphrase or seed
+- deterministic wallet and public/private key generation from a passphrase or seed
 - serialization and deserialization of public keys to hex strings
-- generation of Skycoin addresses from a pubkey.
+- generation of Skycoin addresses from a pubkey
 - ability to sign hashes with private keys and verify signatures
 - curve multiplication operation for encrypting data to a pub key.
 - hashing operations (SHA256 and binary merkle-tree)
