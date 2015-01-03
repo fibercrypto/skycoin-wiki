@@ -12,7 +12,7 @@ There are two operations
 
 ## Summary of Functionality
 
-Cipher is currently based on secp256k1 and SHA256
+Cipher is based on secp256k1 and SHA256. It uses the same encryption algorithm as Bitcoin.
 
 The package contains
 - public/private key generation
@@ -167,11 +167,39 @@ To decrypt an encrypted message
 3. Decrypt the rest of the message with AES, using cipher.ECDH(pubkey2, seckey) as the key
 4. read the message
 
-Future version will have a simple to use encryption/decryption wrapper. There will also be a gui and it will be significantly easier to use than PGP.
+Future version will have a simple to use encryption/decryption wrapper. There will also be a gui and it will be easier to use than PGP.
+
+It will also be possible to securely message private keys through Skywire.
+
+## Signature Operations
+
+
+Sign hash with private key, return signature 
+
+```go
+signature := SignHash(hash, seckey)
+```
+
+Verify the signature for the hash
+```go
+err := VerifySignedHash(sig, hash)
+if err != nil {
+  log.Printf("Signature invalid!")
+}
+```
+
+We use compressed signatures, so the public key can be recovered from the signature itself.
 
 ## Encrypting Files and Directories
 
-TODO
+TODO. Not implemented yet.
+
+## Hardware Devices
+
+We believe that encryption/decryption and signature operations should be handled by a hardware device if possible. This ensures safety of coins and private keys, even if the computer is hacked or compromised.
+
+In the long term, we plan to fund the development of such devices (a five dollar, 32 bit ARM processor the size of USB thumbstick). We also planning an interface to the encryption library which transparently handles external key-storage devices.
+
 
 ## Example Application For Public Key Cryptography 
 
