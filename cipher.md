@@ -174,13 +174,14 @@ It will also be possible to securely message private keys through Skywire.
 ## Signature Operations
 
 
-Sign hash with private key, return signature 
+Sign SHA256 hash of message with private key, return signature 
 
 ```go
 signature := SignHash(hash, seckey)
 ```
 
 Verify the signature for the hash
+
 ```go
 err := VerifySignedHash(sig, hash)
 if err != nil {
