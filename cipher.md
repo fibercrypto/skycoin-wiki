@@ -45,10 +45,10 @@ func main() {
   var sec cipher.SecKey // a secret key
   
   pub, sec := cipher.GenerateKeyPair() //generate a keypair
-
-  //now you can sign messages, encrypt things or generate addresses
 }
 ```
+
+Now you can sign messages, encrypt things or generate addresses for receiving coins.
 
 ## Generating Addresses and Key Pairs
 
