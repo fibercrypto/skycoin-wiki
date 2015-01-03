@@ -74,9 +74,18 @@ addr_str := addr.String()
 
 //print address and pubkey
 log.Printf("pubkey= %s, address= %s", pubkey.String(), addr.String())
+```
 
-//load address from base58 string, panic on failure
-addr2, err := cipher.MustDecodeBase58Address(""WyPXrQpAJ7bL6kXZ9ZB6c1p3yUMhBMF7u8")
+```go
+//load address from base58 string
+addr2 := cipher.MustDecodeBase58Address("WyPXrQpAJ7bL6kXZ9ZB6c1p3yUMhBMF7u8")
+
+//load private key from hex string
+seckey := MustSecKeyFromHex("f399bd1b78792da9cc49b1157c73016450c949df565ce3ddbf2f9d65fd8f0dac")
+
+//load public key from hex string
+pubkey := MustPubKeyFromHex("03e56ab0597167882813864bd71305660edc128d45ed41ff583b15a44e4e95233f")
+
 ```
 
 ## Darkwallet Addresses
@@ -112,8 +121,8 @@ address := cipher.AddressFromPubkey() //send coins here
 To review:
 - you send them your public key
 - they generate a new public key and send you that
-- you compute EDCH with their public key and your private key
-- they compute EDCH with their private key and your public key
+- you compute ECDH with their public key and your private key
+- they compute ECDH with their private key and your public key
 - the values computed are equal! You now have a shared secret.
 - the shared secret is used to generate an address and only you two know the private key for this address
 
@@ -126,7 +135,20 @@ Dark Wallet In Practice
 - if the private key works, you claim the coins by moving the coins into your wallet
 - if no one claims the coins after a certain period, the person may spend the coins in the shared address, back into their wallet
 
+## Sending an Encrypted Message to Someone
 
+To send an encrypted message
+1. Get their public key
+2. Generate a throw-away ephemeral key with, pubkey2,seckey2 := GenerateKeyPair()
+3. Encrypt the message with AES using key, cipher.ECDH(pubkey, seckey2), where pubkey is their key
+4. Append pubkey2 to front of encrypted message so they can decrypt it.
+5. Deliver the message
+
+To decrypt an encrypted message
+1. Take the first 33 bytes off the front of the message to get pubkey2.
+2. Compute cipher.ECDH(pubkey2, seckey) with your seckey and the pubkey they sent
+3. Decrypt the rest of the message with AES, using cipher.ECDH(pubkey2, seckey) as the key
+4. read the message
 
 ## Example Application For Public Key Cryptography 
 
