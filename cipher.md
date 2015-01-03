@@ -62,32 +62,39 @@ Generate a keypair from a pass phrase
 pub,sec := cipher.GenerateDeterministicKeyPair([]byte("Password")) 
 ```
 
-```go
-
-var seckey cipher.SecKey
-var pubkey cipher.PubKey
-var addr cipher.Address
-
 //Generate a skycoin address for a given public key
+```go
+var seckey cipher.SecKey //secret key variable
+var pubkey cipher.PubKey //public key variable
+var addr cipher.Address  //address variable, to store address
+
 pub,sec = GenerateDeterministicKeyPair([]byte("Password")) 
 addr = cipher.AddressFromPubKey(pubkey) //this is the address
-//get base58 encoded form of address
-addr_str := addr.String()
-
-//print address and pubkey
-log.Printf("pubkey= %s, address= %s", pubkey.String(), addr.String())
 ```
 
+Get address as a base58 encoded string
 ```go
-//load address from base58 string
-addr2 := cipher.MustDecodeBase58Address("WyPXrQpAJ7bL6kXZ9ZB6c1p3yUMhBMF7u8")
+addr_str := addr.String()
+```
 
-//load private key from hex string
+Print address, its pubkey and the secret key for the address
+```go
+log.Printf("address= %s, pubkey= %s,seckey= %s", addr.String(), pubkey.Hex(), seckey.Hex())
+```
+
+Load an address from a base58 string
+```go
+address := cipher.MustDecodeBase58Address("WyPXrQpAJ7bL6kXZ9ZB6c1p3yUMhBMF7u8")
+```
+
+Load a private key from hex string
+```go
 seckey := MustSecKeyFromHex("f399bd1b78792da9cc49b1157c73016450c949df565ce3ddbf2f9d65fd8f0dac")
+```
 
-//load public key from hex string
+Load a public key from a hex string
+```go
 pubkey := MustPubKeyFromHex("03e56ab0597167882813864bd71305660edc128d45ed41ff583b15a44e4e95233f")
-
 ```
 
 ## Deterministic Wallet Addresses
