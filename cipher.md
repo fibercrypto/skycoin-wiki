@@ -1,4 +1,4 @@
-Cipher is the cryptography library for Skycoin. It is designed to make cryptography easy. The library was designed to be the foundation of multiple applications and for usage beyond the coin implementation.
+Cipher is the core cryptography library for the Skycoin Project. It is designed to make cryptography easy. The library was designed to be the foundation of multiple applications and for usage beyond the coin implementation.
 
 ## Background on Public Key Cryptography
 
