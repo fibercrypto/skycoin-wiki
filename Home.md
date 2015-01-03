@@ -7,6 +7,14 @@
 * [Brain Wallet Sigils](Brain-Wallet-Sigils)
 Visual Representation of Deterministic Wallet Seeds
 
+# Developer Tutorials
+
+* [Cipher: Skycoin Standard Cryptography Library](cipher)
+This will teach you to generate public/private key pairs, perform encryption and use dark wallet addresses.
+
+
+
+# NOT DONE
 # Developer Tutorials (FINISH THIS)
 
 
