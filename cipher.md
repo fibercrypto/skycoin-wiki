@@ -44,7 +44,7 @@ func main() {
   
   pub, sec := cipher.GenerateKeyPair() //generate a keypair
 
-  fmt.
+  //now you can sign messages or encrypt things
 }
 ```
 
