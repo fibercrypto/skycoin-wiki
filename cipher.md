@@ -68,7 +68,7 @@ var seckey cipher.SecKey //secret key variable
 var pubkey cipher.PubKey //public key variable
 var addr cipher.Address  //address variable, to store address
 
-pub,sec = GenerateDeterministicKeyPair([]byte("Password")) 
+pub,sec = GenerateDeterministicKeyPair([]byte("Secret Passphrase")) 
 addr = cipher.AddressFromPubKey(pubkey) //this is the address
 ```
 
