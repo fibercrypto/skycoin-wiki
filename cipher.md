@@ -8,7 +8,7 @@ Public key cryptography allows you to generate a private key and public key
 
 There are two operations
 - signatures: You can sign data with your private key and anyone can verify that only the person knowing the private key could have produced the signature. This is how Bitcoin/Skycoin transactions are authorized. The person who knows the private key for an address, "owns" the Bitcoin, in that they are able to authorize transactions by signing them.
-- encryption: Anyone who knows your public key can encrypt data, so that only the person knowing the secret key can read it.
+- encryption: Anyone who knows your public key can encrypt data, so that only you can decrypt it (or anyone who knows the secret private key).
 
 ## Summary of Functionality
 
