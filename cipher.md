@@ -152,6 +152,8 @@ Dark Wallet In Practice
 - if the private key works, you claim the coins by moving the coins into your wallet
 - if no one claims the coins after a certain period, the person may spend the coins in the shared address, back into their wallet
 
+In the long-term, dark wallet addresses will not be necessary. Communication addresses over Skywire, will give an off-blockchain channel for communicating new addresses and receipts for each transaction.
+
 ## Sending an Encrypted Message to Someone
 
 To send an encrypted message
