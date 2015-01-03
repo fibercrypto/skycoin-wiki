@@ -88,17 +88,34 @@ pubkey := MustPubKeyFromHex("03e56ab0597167882813864bd71305660edc128d45ed41ff583
 
 ```
 
+## Deterministic Wallet Addresses
+
+To generate N addresses deterministicly from a wallet passphrase or seed, do
+```go
+N := 16 //generate 16 addresses
+secret_passphrase = []byte("Secret Wallet Passphrase")
+seckeys := cipher.GenerateDeterministicKeyPairs(secret_passphrase)
+
+//lets print out the addresses for out our private keys in deterministic wallet
+for index, seckey in range seckeys {
+  pubkey := cipher.PubKeyFromSecKey(seckey)
+  addr := cipher.AddressFromPubKey(pubkey)
+
+  fmt.Printf("num= %s, address= %s, public_key= %s, secret_key= %s", index, addr.String(), pubkey.Hex(), seckey.Hex())
+}
+```
+
 ## Darkwallet Addresses
 
 A darkwallet address allows someone with your public key to generate infinite unused addresses which you can receive coins to.
 
-For a darkwallet address, you give someone your public key. They generate a throwaway ephemeral key which is published somewhere (in the blockchain). You both do an operation and get the same secret. The secret is used to generate a private key which only you two know. The coins are sent to the address for this private key. Both you and the sender have access to the coins and so you then move the coins to a new place.
+For a darkwallet address, you give someone your public key. They generate a throwaway ephemeral key which is published somewhere (in the blockchain). You both do an operation and get a shared secret. The secret is used to generate a private key which only you two know. The coins are sent to the address for this private key. Both you and the sender have access to the coins and so you then move the coins to a new place.
 
 ```go
 //this is your private/public key pair. You give them the public key
-seckey1, pubkey1 := GenerateDeterministicKeyPair([]byte("Password"))
+pubkey1, seckey1 := GenerateDeterministicKeyPair([]byte("Password"))
 //This is their key pair
-seckey2, pubkey2 := GenerateKeyPair()
+pubkey2, seckey2:= GenerateKeyPair()
 
 //They communicate pubkey2, by for instance using it as the first destination for coins in a transaction
 //You know pubkey2, and seckey1/pubkey1
@@ -149,6 +166,12 @@ To decrypt an encrypted message
 2. Compute cipher.ECDH(pubkey2, seckey) with your seckey and the pubkey they sent
 3. Decrypt the rest of the message with AES, using cipher.ECDH(pubkey2, seckey) as the key
 4. read the message
+
+Future version will have a simple to use encryption/decryption wrapper. There will also be a gui and it will be significantly easier to use than PGP.
+
+## Encrypting Files and Directories
+
+TODO
 
 ## Example Application For Public Key Cryptography 
 
