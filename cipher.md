@@ -6,6 +6,8 @@ Public key cryptography allows you to generate a private key and public key
 - the private key is secret and only you know the private key
 - the public key can be shared
 
+Addresses in Bitcoin/Skycoin are derived from public keys. Every private key has a public key and every public key has an "address" that can receive coins. To spend the coins, you need to know the private key for the address.
+
 There are two operations
 - encryption: Anyone who knows your public key can encrypt data, so that only you can read it (or anyone who knows the secret private key).
 - signatures: You can sign data with your private key and anyone can verify that only the person knowing the private key could have produced the signature. This is how Bitcoin/Skycoin transactions are authorized. The person who knows the private key for an address, "owns" the Bitcoin, in that they are able to authorize transactions by signing them.
@@ -50,13 +52,13 @@ func main() {
 
 ## Generating Addresses and Key Pairs
 
+Generate a new public, private key paid
 ```go
-//Generate a keypair randomly
 pub,sec := cipher.GenerateKeyPair()
 ```
 
+Generate a keypair from a pass phrase
 ```go
-//Generate a keypair from a pass phrase
 pub,sec := cipher.GenerateDeterministicKeyPair([]byte("Password")) 
 ```
 
