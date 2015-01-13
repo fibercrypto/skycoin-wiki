@@ -1,6 +1,6 @@
 The Skycoin Project is building the new internet. Figure out what needs to be done and do it.
 
-There are three active projects which are critical and in progress
+There are three active projects which the main development team has committed resources to finishing for the next milestone. 
 - developing new blockchain, /src/coin
 - developing post-mining distributed consensus 
 - developing low latency darknet suitable for meshnet operation, which allow community ownership of the networking infrastructure
@@ -23,4 +23,26 @@ Planned/Prototyped/Needs to be Started. These are good projects to start working
 
 ### Purpose of infrastructure components
 
+Cipher - allows standardized, easy to use public key cryptographic and hashing operations across project. This is a major achievement already.
 
+Skycoin - Skycoin is the token system that prevents leaching in the darknet and ensures users contribute as much back to network as they consume in resources. Skycoin funds the project development and funds meshnet deployment. Skycoin was written from scratch and designed over four years to realize the ideal of Bitcoin and represents the apex of cryptocurrency design. Skycoin is not designed to add features to Bitcoin, but rather improves Bitcoin by increasing simplicity, security and stripping out everything non-essential.
+
+Some people have hyped the Skycoin Project as leading into "Bitcoin 3.0". The coin itself is not "Bitcoin 3.0", but is rather "Bitcoin 1.0". Bitcoin is a prototype crypto-coin. Skycoin was designed to be what Bitcoin would look like if it were built from scratch, to remedy the rough edges in the Bitcoin design.
+- no duplicate coin-base outputs
+- enforced checks for hash collisions
+- simple deterministic wallets
+- no transaction malleability
+- no signature malleability
+- clean, simple, modern API (based upon Darkwallet/Libbitcoin)
+- removal of the scripting language
+- indistinguishably between CoinJoin and normal transactions
+- local HTML web-wallet
+- improved usability and intuitive behavior that matches what users expect (such as not losing coins if you load a wallet from backup)
+- a clean, modular software architecture with unit test coverage
+- elimination of edge-cases that prevent independent node implementations.
+- 10 second transaction times
+- elimination of need for mining to achieve blockchain consensus
+
+Skycoin consensus is the only "advance" that Skycoin makes over Bitcoin. Everything else is merely an attempt at doing well, the parts where Bitcoin fails. Solving unsolved problems, increases project technical risk, which must be minimized. We must make achievable commitments and be very selective about where we attempt "innovation".
+
+Each "innovation" requires a full and indefinite commitment. The consensus algorithm is the one place where the risk of project failure was offset by the benefit. The consensus algorithm took over four years to develop, has evolved significantly in the past six months and is still undergoing testing and improvement.
