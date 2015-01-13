@@ -12,7 +12,9 @@ Visual Representation of Deterministic Wallet Seeds
 * [Cipher: Skycoin Standard Cryptography Library](cipher)
 This will teach you the basics of encryption. How to generate public/private key pairs, perform encryption and use dark wallet addresses.
 
+# What Needs To Be Done
 
+* [Contributing to Skycoin](Contributing)
 
 # NOT DONE
 # Developer Tutorials (FINISH THIS)
