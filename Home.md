@@ -14,6 +14,7 @@ This will teach you the basics of encryption. How to generate public/private key
 
 # What Needs To Be Done
 
+* [Do Right Now: Coin](coin_todo)
 * [Contributing to Skycoin](Contributing)
 
 # NOT DONE
