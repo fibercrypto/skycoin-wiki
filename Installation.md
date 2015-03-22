@@ -4,7 +4,7 @@ Skycoin is developed in Go and interfaces with some C libraries.
 
 You will need:
 
-* go1.2
+* go1.4
 * gcc or clang
 * libgmp
 * bash
@@ -44,9 +44,9 @@ Then, run the install script to set up the environment:
 This script does the following:
 
 * Installs [gvm](https://github.com/moovweb/gvm), a go version manager.
-* Installs go1.2 using `gvm`.
-* Adds `gvm use go1.2` to `~/.bashrc`, if no `gvm use` instruction is already present in that file. This command sets $GOROOT and $GOPATH correctly.
-* Activates go1.2 in the current environment with `gvm use go1.2`.
+* Installs go1.4 using `gvm`.
+* Adds `gvm use go1.4` to `~/.bashrc`, if no `gvm use` instruction is already present in that file. This command sets $GOROOT and $GOPATH correctly.
+* Activates go1.4 in the current environment with `gvm use go1.4`.
 * Symlinks the skycoin repo directory into `$GOPATH/github.com/skycoin/` if not already present.  This is so that sub-package imports work correctly.  Unfortunately, Go enforces a strict project layout hierarchy in your working environment, making this step necessary.
 * Installs skycoin dependencies with `go get -u`.  This will clone or update libraries in use by skycoin.  Dependencies are kept in `./compile/dependencies.txt`.  Note that there is no dependency versioning; go does not provide this functionality.  In the future we will have a versioned solution.
 
