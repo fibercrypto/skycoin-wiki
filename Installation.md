@@ -19,6 +19,8 @@ make sure that skycoin is in the gopath
 ```
 mv skycoin $GOPATH/src/github.com/skycoin/
 ln -s $GOPATH/src/github.com/skycoin/skycoin skycoin
+cd skycoin
+go run ./cmd/skycoin/skycoin.go
 ```
 
 # General requirements
