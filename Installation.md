@@ -2,7 +2,7 @@
 
 ```
 sudo apt-get install binutils bison gcc make
-sudo apt-get install lib-gmp
+sudo apt-get install libgmp-dev
 
 ./setup.sh
 ```
@@ -108,5 +108,4 @@ The universal instructions should work unmodified with OS X.  However, you may n
 ## Windows
 
 The universal instructions should work unmodified in a `MingW` shell.
-
 
