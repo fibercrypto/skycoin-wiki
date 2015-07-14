@@ -1,19 +1,34 @@
+# Summary
+
+```
+sudo apt-get install binutils bison gcc make
+sudo apt-get install lib-gmp
+
+./setup.sh
+```
+
+also try 
+
+```
+./compile/get-dependencies.sh 
+
+```
+
+make sure that skycoin is in the gopath
+
+```
+mv skycoin $GOPATH/src/github.com/skycoin/
+ln -s $GOPATH/src/github.com/skycoin/skycoin skycoin
+```
+
 # General requirements
 
 Skycoin is developed in Go and interfaces with some C libraries.
 
-You will need:
-
-* go1.4
-* gcc or clang
-* libgmp
-* bash
-
-There are 3 build version of Skycoin.  
+There are 2 build version of Skycoin.  
 
 * **skycoin** - The desktop GUI build, which includes a node-webkit wrapper around skycoind.  This introduces an extra build step.
 * **skycoind** - The headless build.  An optional web interface is exposed, to run the GUI in the browser.
-* **skycoindev** - The development version of the headless build.
 
 Each version is the same code but with different configuration defaults.  The GUI also relies on the node-webkit prebuilt binaries.
 
@@ -48,7 +63,7 @@ This script does the following:
 * Adds `gvm use go1.4` to `~/.bashrc`, if no `gvm use` instruction is already present in that file. This command sets $GOROOT and $GOPATH correctly.
 * Activates go1.4 in the current environment with `gvm use go1.4`.
 * Symlinks the skycoin repo directory into `$GOPATH/github.com/skycoin/` if not already present.  This is so that sub-package imports work correctly.  Unfortunately, Go enforces a strict project layout hierarchy in your working environment, making this step necessary.
-* Installs skycoin dependencies with `go get -u`.  This will clone or update libraries in use by skycoin.  Dependencies are kept in `./compile/dependencies.txt`.  Note that there is no dependency versioning; go does not provide this functionality.  In the future we will have a versioned solution.
+* Installs skycoin dependencies with `go get -u`.  This will clone or update libraries in use by skycoin.  Dependencies are kept in `./compile/dependencies.txt`.
 
 ### Command line options
 
@@ -71,10 +86,8 @@ Then you may run it as often as you want.
 ### Running skycoind, the headless client
 
 ```
-go run cmd/skycoind/skycoind.go
+go run cmd/skycoin/skycoin.go
 ```
-
-### Running skycoindev, the headless client with a development configuration
 
 A wrapper script is provided for this, for convenience.
 
