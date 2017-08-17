@@ -1,1 +1,0 @@
-https://piratepad.ca/p/skycoin_todo
