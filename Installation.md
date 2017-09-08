@@ -1,6 +1,6 @@
 # Prerequisites
 
-Install go1.8+.
+[Install go1.8+](https://golang.org/doc/install)
 
 # Running from source
 
