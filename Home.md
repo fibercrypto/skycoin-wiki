@@ -5,7 +5,7 @@
 # Standards
 
 * [Brain Wallet Sigils](Brain-Wallet-Sigils)
-Visual Representation of Deterministic Wallet Seeds
+Visual Representation of Deterministic Wallet Seeds.
 
 # Tutorials
 
