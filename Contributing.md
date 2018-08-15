@@ -25,7 +25,7 @@ Planned/Prototyped/Needs to be Started. These are good projects to start working
 
 Cipher - allows standardized, easy to use public key cryptographic and hashing operations across project. This is a major achievement already.
 
-Skycoin - Skycoin is the token system that prevents leaching in the darknet and ensures users contribute as much back to network as they consume in resources. Skycoin funds the project development and funds meshnet deployment. Skycoin was written from scratch and designed over four years to realize the ideal of Bitcoin and represents the apex of cryptocurrency design. Skycoin is not designed to add features to Bitcoin, but rather improves Bitcoin by increasing simplicity, security and stripping out everything non-essential.
+Skycoin - Skycoin is the token system that prevents leeching in the darknet and ensures users contribute as much back to network as they consume in resources. Skycoin funds the project development and funds meshnet deployment. Skycoin was written from scratch and designed over four years to realize the ideal of Bitcoin and represents the apex of cryptocurrency design. Skycoin is not designed to add features to Bitcoin, but rather improves Bitcoin by increasing simplicity, security and stripping out everything non-essential.
 
 Some people have hyped the Skycoin Project as leading into "Bitcoin 3.0". The coin itself is not "Bitcoin 3.0", but is rather "Bitcoin 1.0". Bitcoin is a prototype crypto-coin. Skycoin was designed to be what Bitcoin would look like if it were built from scratch, to remedy the rough edges in the Bitcoin design.
 - no duplicate coin-base outputs
