@@ -9,14 +9,14 @@ The package contains
 - deterministic wallet and public/private key generation from a passphrase or seed
 - serialization and deserialization of public keys to hex strings
 - generation of Skycoin addresses from a pubkey
+- generation of Bitcoin addresses from a pubkey [Skycoin and Bitcoin addresses are interconvertible]
 - ability to sign hashes with private keys and verify signatures
 - curve multiplication operation for encrypting data to a pub key.
 - hashing operations (SHA256 and binary merkle-tree)
+- File encryption with scrypt+chacha20poly1305
 
 future functionality:
-- secp256k1-ChaCha20 will be supported (default encryption options)
-- Bitcoin, Litecoin, Dogecoin address generation
-- ability to encrypt and decrypt directories and files
+- Litecoin, Dogecoin and Ethereum address generation
 
 ## Background on Public Key Cryptography
 
