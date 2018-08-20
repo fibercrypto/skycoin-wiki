@@ -239,9 +239,34 @@ Police are seizing Bitcoin and auctioning them off for money before trial. They 
 
 In the long-term, dark wallet addresses will not be necessary. Communication addresses over Skywire, will give an off-blockchain channel for communicating new addresses and receipts for each transaction.
 
-## Encrypting Files and Directories
+## Encrypting Files
 
-TODO. Not implemented yet.
+https://github.com/skycoin/skycoin/tree/master/src/cipher/encrypt
+
+### Key derivation
+
+Key derivation is performed with scrypt.
+
+A user-provided password and random 32-byte salt is converted into an encryption key using scrypt.
+The `r` parameter is defaulted to 8 and the `p` parameter is defaulted to 1.
+The scrypt work factor `N` is defaulted to `1 << 20`, which is chosen
+based upon modern desktop CPU speeds. 
+As of 2017, key derivation takes 3-4 seconds on common desktop CPUs with this work factor.
+If used in another context, such as a mobile device, the work factor should be reduced for usability,
+at the risk of being easier to crack.
+The default work factor will be increased as needed over time.
+
+Note that if you encrypt your wallet and store the encrypted wallet somewhere,
+eventually performance improvements in CPUs can make your encrypted file more
+vulnerable to brute force attacks.  The work factor of `1 << 20` should be good until
+at least 2020.
+
+### Encryption
+
+File encryption is performed with chacha20-poly1305. 
+
+After the key is derived from the user password and the random salt, it used for encryption
+with chacha20-poly1305. The nonce is randomly generated each time the file is encrypted.
 
 ## Hardware Devices
 
