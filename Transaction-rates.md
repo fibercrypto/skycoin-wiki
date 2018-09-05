@@ -24,3 +24,7 @@ Using the configured defaults of 32kB block size and a 10 second block rate, and
 ## Transaction prioritization
 
 Transactions are chosen for block placement by their coin hour fee per byte, which is the number of coin hours destroyed by the transaction divided by the size of the transaction in bytes.  In the case of a tie, the transaction hashes are compared lexicogprahically with the first one being chosen.  This provides determinism in transaction selection.
+
+## Blockchain growth
+
+At 10 blocks per second, 32kB per block, the maximum blockchain growth rate is 283.1MB/day or 103.3GB/yr.  Actual size of data on disk is larger due to the need to index this data, which adds overhead.
