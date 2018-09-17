@@ -6,8 +6,4 @@ Once the initial peers are bootstrapped, Skycoin uses a peer exchange mechanism 
 
 ## Peer Exchange (PEX)
 
-There are 2 messages used in PEX, GETP and GIVP.  GETP is a request for more peers, and GIVP is the reply.  Up to 20 peers randomly selected from the peerlist are sent as a GIVP message.  The receiver of GIVP updates their peer pool with these peers, marking them as seen.  Peers that have not been seen in over a week are discarded.  When interacting with a peer listed in the peerlist, if they violate any conditions, they are blacklisted for that condition's blacklist period.  Blacklists are not exchanged at this time.  Unsolicited connections from an unknown peer cause that peer to be added to the peerlist.
-
-# Blacklist Conditions
-
-TODO
+There are 2 messages used in PEX, GETP and GIVP.  GETP is a request for more peers, and GIVP is the reply.  Up to 20 peers randomly selected from the peerlist are sent as a GIVP message.  The receiver of GIVP updates their peer pool with these peers, marking them as seen.  Peers that have not been seen in over a week are discarded.  Unsolicited connections from an unknown peer cause that peer to be added to the peerlist.
