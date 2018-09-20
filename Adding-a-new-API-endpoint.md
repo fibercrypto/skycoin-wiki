@@ -8,3 +8,5 @@ Checklist for adding a new API endpoint:
 * Add a method to the api.Client in api/client.go
 * Add a stable integration test, if applicable
 * Add a live integration test, if applicable
+* Update api/README.md
+* Update CHANGELOG.md
