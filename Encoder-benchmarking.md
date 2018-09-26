@@ -1,4 +1,4 @@
-Benchmarking of the binary encoder (https://github.com/skycoin/skycoin/tree/develop/src/cipher/encoder) is done with https://github.com/gz-c/gosercomp.  The benchmarks require a lot of setup for the various encoders, but is described in the README of that repo.
+Benchmarking of the binary encoder is done with https://github.com/gz-c/gosercomp.  The benchmarks require a lot of setup for the various encoders, but is described in the README of that repo.
 
 Results generated on Mid-2015 Macbook Pro base model:
 
@@ -92,4 +92,6 @@ BenchmarkDecodeZColorGroup-8                   	10000000	       136 ns/op	 102.5
 ```
 
 
-*Original issue: https://github.com/skycoin/skycoin/issues/1872*
+*(Original issue](https://github.com/skycoin/skycoin/issues/1872)*
+
+*[package encoder](https://github.com/skycoin/skycoin/tree/develop/src/cipher/encoder)*
