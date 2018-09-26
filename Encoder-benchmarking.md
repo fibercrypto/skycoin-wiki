@@ -1,6 +1,6 @@
 Benchmarking of the binary encoder is done with https://github.com/gz-c/gosercomp.  The benchmarks require a lot of setup for the various encoders, but is described in the README of that repo.
 
-Results generated on Mid-2015 Macbook Pro base model:
+Results generated on Mid-2015 Macbook Pro base model, commit a8ed0bd51047396993bcb2e16a070826618db03f
 
 ```
 BenchmarkMarshalByJson-8                       	 2000000	       688 ns/op	     128 B/op	       2 allocs/op
