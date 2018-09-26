@@ -92,6 +92,6 @@ BenchmarkDecodeZColorGroup-8                   	10000000	       136 ns/op	 102.5
 ```
 
 
-*(Original issue](https://github.com/skycoin/skycoin/issues/1872)*
+*[Original issue](https://github.com/skycoin/skycoin/issues/1872)*
 
 *[package encoder](https://github.com/skycoin/skycoin/tree/develop/src/cipher/encoder)*
