@@ -1,6 +1,70 @@
-Benchmarking of the binary encoder is done with https://github.com/gz-c/gosercomp.  The benchmarks require a lot of setup for the various encoders, but is described in the README of that repo.
+Current benchmark status, after merging of https://github.com/skycoin/skycoin/pull/1915
 
-Results generated on Mid-2015 Macbook Pro base model, commit a8ed0bd51047396993bcb2e16a070826618db03f
+```
+# go test -bench=. -run=XXX -benchmem=true  ./src/daemon
+
+benchmark                                        old ns/op     new ns/op     delta
+BenchmarkDeserializeRawGetPeersMessage-8         155           78.3          -49.48%
+BenchmarkSerializeGetPeersMessage-8              139           140           +0.72%
+BenchmarkDeserializeRawGivePeersMessage-8        2790          810           -70.97%
+BenchmarkSerializeGivePeersMessage-8             2121          1360          -35.88%
+BenchmarkDeserializeRawIntroductionMessage-8     1548          615           -60.27%
+BenchmarkSerializeIntroductionMessage-8          2886          1237          -57.14%
+BenchmarkDeserializeRawGiveBlocksMessage-8       235440        39867         -83.07%
+BenchmarkSerializeGiveBlocksMessage-8            216667        52153         -75.93%
+BenchmarkDeserializeRawAnnounceTxnsMessage-8     4443          662           -85.10%
+BenchmarkSerializeAnnounceTxnsMessage-8          4104          766           -81.34%
+BenchmarkDeserializeRawGiveTxnsMessage-8         67512         11008         -83.69%
+BenchmarkSerializeGiveTxnsMessage-8              61087         14769         -75.82%
+
+benchmark                                        old allocs     new allocs     delta
+BenchmarkDeserializeRawGetPeersMessage-8         2              1              -50.00%
+BenchmarkSerializeGetPeersMessage-8              2              2              +0.00%
+BenchmarkDeserializeRawGivePeersMessage-8        41             11             -73.17%
+BenchmarkSerializeGivePeersMessage-8             31             17             -45.16%
+BenchmarkDeserializeRawIntroductionMessage-8     22             7              -68.18%
+BenchmarkSerializeIntroductionMessage-8          21             13             -38.10%
+BenchmarkDeserializeRawGiveBlocksMessage-8       1277           392            -69.30%
+BenchmarkSerializeGiveBlocksMessage-8            907            557            -38.59%
+BenchmarkDeserializeRawAnnounceTxnsMessage-8     17             8              -52.94%
+BenchmarkSerializeAnnounceTxnsMessage-8          7              8              +14.29%
+BenchmarkDeserializeRawGiveTxnsMessage-8         377            116            -69.23%
+BenchmarkSerializeGiveTxnsMessage-8              259            161            -37.84%
+
+benchmark                                        old bytes     new bytes     delta
+BenchmarkDeserializeRawGetPeersMessage-8         16            8             -50.00%
+BenchmarkSerializeGetPeersMessage-8              16            16            +0.00%
+BenchmarkDeserializeRawGivePeersMessage-8        689           160           -76.78%
+BenchmarkSerializeGivePeersMessage-8             384           160           -58.33%
+BenchmarkDeserializeRawIntroductionMessage-8     384           112           -70.83%
+BenchmarkSerializeIntroductionMessage-8          320           160           -50.00%
+BenchmarkDeserializeRawGiveBlocksMessage-8       51146         16584         -67.58%
+BenchmarkSerializeGiveBlocksMessage-8            15728         11760         -25.23%
+BenchmarkDeserializeRawAnnounceTxnsMessage-8     1127          352           -68.77%
+BenchmarkSerializeAnnounceTxnsMessage-8          176           240           +36.36%
+BenchmarkDeserializeRawGiveTxnsMessage-8         15463         4856          -68.60%
+BenchmarkSerializeGiveTxnsMessage-8              4496          3408          -24.20%
+```
+
+```
+# go test -bench=. -run=XXX -benchmem=true ./src/cipher/encoder
+
+benchmark                     old ns/op     new ns/op     delta
+BenchmarkDeserializeRaw-8     3065          657           -78.56%
+BenchmarkSerialize-8          1069          790           -26.10%
+
+benchmark                     old allocs     new allocs     delta
+BenchmarkDeserializeRaw-8     31             11             -64.52%
+BenchmarkSerialize-8          13             7              -46.15%
+
+benchmark                     old bytes     new bytes     delta
+BenchmarkDeserializeRaw-8     883           216           -75.54%
+BenchmarkSerialize-8          208           112           -46.15%
+```
+
+This following benchmark of the binary encoder was done with https://github.com/gz-c/gosercomp.  The benchmarks require a lot of setup for the various encoders, but is described in the README of that repo.
+
+Results generated on Mid-2015 Macbook Pro base model, commit a8ed0bd51047396993bcb2e16a070826618db03f, before any optimizations were made:
 
 ```
 BenchmarkMarshalByJson-8                       	 2000000	       688 ns/op	     128 B/op	       2 allocs/op
