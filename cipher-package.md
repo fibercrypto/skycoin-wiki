@@ -62,7 +62,7 @@ Generate a keypair from a pass phrase
 pub,sec := cipher.GenerateDeterministicKeyPair([]byte("Password")) 
 ```
 
-//Generate a skycoin address for a given public key
+Generate a skycoin address for a given public key
 ```go
 var seckey cipher.SecKey //secret key variable
 var pubkey cipher.PubKey //public key variable
