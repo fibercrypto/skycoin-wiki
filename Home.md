@@ -1,6 +1,6 @@
 # Skycoin
 
-* [Installation](Installation)
+* [Installation](https://github.com/skycoin/skycoin/blob/develop/INSTALLATION.md)
 
 # Standards
 
