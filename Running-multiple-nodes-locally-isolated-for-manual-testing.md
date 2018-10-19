@@ -16,7 +16,14 @@ A way to run multiple nodes locally for testing:
 * Use the following invocation for each node:
 
 ```sh
-PORT=6001 ./run-client.sh -localhost-only -custom-peers-file=localhost-peers.txt -download-peerlist=false -launch-browser=false -data-dir=/tmp/$PORT -web-interface-port=$(expr $PORT + 420) -port=$PORT
+PORT=6001 ./run-client.sh \
+  -localhost-only \
+  -custom-peers-file=localhost-peers.txt \
+  -download-peerlist=false \
+  -launch-browser=false \
+  -data-dir=/tmp/$PORT \
+  -web-interface-port=$(expr $PORT + 420) \
+  -port=$PORT
 ```
 
 Replace `PORT=` with the correct port number.
