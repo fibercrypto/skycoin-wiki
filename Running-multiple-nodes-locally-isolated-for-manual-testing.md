@@ -1,4 +1,4 @@
-An easy way to run multiple nodes locally for testing:
+A way to run multiple nodes locally for testing:
 
 
 * Choose a unique port for each node you wish to run.  e.g. 3 nodes with ports `6001`, `6002`, `6003`
