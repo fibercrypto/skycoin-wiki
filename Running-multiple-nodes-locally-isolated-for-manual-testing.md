@@ -3,7 +3,7 @@ A way to run multiple nodes locally for testing:
 
 * Choose a unique port for each node you wish to run.  e.g. 3 nodes with ports `6001`, `6002`, `6003`
 
-* Create a file `localhost-peers.txt`:
+* Create a file `localhost-peers.txt`, e.g.:
 
 ```
 127.0.0.1:6001
