@@ -3,7 +3,7 @@
 * [Installation](https://github.com/skycoin/skycoin/blob/develop/INSTALLATION.md)
 * [README](https://github.com/skycoin/skycoin/blob/develop/README.md)
 * [Changelog](https://github.com/skycoin/skycoin/blob/develop/CHANGELOG.md)
-* [Integration skycoin in an exchange](https://github.com/skycoin/skycoin/blob/develop/INTEGRATION.md)
+* [Integrating skycoin in an exchange](https://github.com/skycoin/skycoin/blob/develop/INTEGRATION.md)
 
 # Skycoin system information
 
