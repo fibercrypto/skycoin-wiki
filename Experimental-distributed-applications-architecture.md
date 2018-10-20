@@ -1,8 +1,11 @@
-# Skycoin Long Term 
 
-Distributed Application Project Light. This is what we believe can be working in less than a week of effort and without substantial innovation. The light version of the distributed application, exposes sandboxed disc, networking and API functions through javascript. Golang, Python and C can be compiled down from LLVM IR to a asm.js target with Emscripten and interpreted by the javascript interpreter.
+## Distributed Application Project Light
+
+This is what we believe can be working in less than a week of effort and without substantial innovation. The light version of the distributed application, exposes sandboxed disc, networking and API functions through javascript. Golang, Python and C can be compiled down from LLVM IR to a asm.js target with Emscripten and interpreted by the javascript interpreter.
 
 This approach works immediately, using an existing tool chain and is acceptable in the immediate term.
+
+## Distributed applications architecture
 
 This document overviews Skycoin distributed application architecture. This project is experimental, extremely long term and open ended. The project involves implementation and documentation of a virtual machine implementation, development of a new intermediate language , development of a new compiler and run-time environment. 
 
