@@ -16,7 +16,7 @@
 # Development guides
 
 * [API Documentation](https://github.com/skycoin/skycoin/blob/develop/src/api/README.md)
-* [CLI Documentation](https://github.com/skycoin/skycoin/blob/develop/src/cmd/cli/README.md)
+* [CLI Documentation](https://github.com/skycoin/skycoin/blob/develop/cmd/cli/README.md)
 * [Contributing to Skycoin](Contributing)
 * [Go and Skycoin starter guide](Go-and-Skycoin-Starter-Guide)
 * [Cipher: Skycoin Standard Cryptography Library](cipher-package)
