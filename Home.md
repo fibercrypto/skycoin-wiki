@@ -15,10 +15,10 @@
 
 # Development guides
 
+* [API Documentation](https://github.com/skycoin/skycoin/blob/develop/src/api/README.md)
+* [CLI Documentation](https://github.com/skycoin/skycoin/blob/develop/src/cmd/cli/README.md)
 * [Contributing to Skycoin](Contributing)
 * [Go and Skycoin starter guide](Go-and-Skycoin-Starter-Guide)
-* [API Documentation](https://github.com/skycoin/skycoin/blob/develop/src/api/README.md)
-* [CLI Documentation](https://github.com/skycoin/skycoin/blob/develop/src/cli/README.md)
 * [Cipher: Skycoin Standard Cryptography Library](cipher-package)
 This will teach you the basics of encryption. How to generate public/private key pairs, perform encryption and use dark wallet addresses.
 * [Adding a new API endpoint](Adding-a-new-API-endpoint)
