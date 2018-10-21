@@ -18,6 +18,7 @@ A way to run multiple nodes locally for testing:
 ```sh
 PORT=6001; ./run-client.sh \
   -localhost-only \
+  -disable-default-peers \
   -custom-peers-file=localhost-peers.txt \
   -download-peerlist=false \
   -launch-browser=false \
