@@ -118,6 +118,7 @@ func main() {
             fmt.Println("This is not a foo.Error")
     }
 }
+```
 
 ### Don't use named return values unless necessary
 
