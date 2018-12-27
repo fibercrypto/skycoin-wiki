@@ -16,6 +16,7 @@ type Foo struct {
     Bar int
     Baz string
 }
+```
 
 Use the struct's field names when instantiating it, and put them each on their own line:
 
@@ -178,4 +179,4 @@ func segmentSampling(...) (start int, end int, step int) {
 
 ### Do not use dot imports
 
-Dot (`.`) imports pollutes the namespace of the current package with another's. Don't do it. Avoid renaming the package import name too, unless necessary.
+Dot (`.`) imports pollute the namespace of the current package with another's. Don't do it. Avoid renaming the package import name too, unless necessary.
