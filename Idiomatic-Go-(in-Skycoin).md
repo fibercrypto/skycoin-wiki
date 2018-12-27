@@ -28,7 +28,7 @@ var foo = Foo{
 
 Do *not* omit the names or put them all on the same line:
 
-```
+```go
 var foo = Foo{1, "cat"} // wrong
 var foo2 = Foo{Bar: 1, Baz: "cat"} // wrong
 ```
@@ -72,7 +72,7 @@ func DoSomethingWrong() error {
 }
 ```
 
-```
+```go
 package main
 
 import foo
@@ -169,8 +169,12 @@ func CopyFile(dst string, src io.Reader) (n int64, err error) {
 
 It is also ok to use if there are a lot of return values and they would be ambiguous without names:
 
-```
+```go
 func segmentSampling(...) (start int, end int, step int) {
     ...
 }
 ```
+
+### Do not use dot imports
+
+Dot (`.`) imports pollutes the namespace of the current package with another's. Don't do it. Avoid renaming the package import name too, unless necessary.
