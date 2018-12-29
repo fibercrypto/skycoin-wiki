@@ -1,4 +1,4 @@
-## Skycoin Starter Guide
+## Skycoin Concepts Guide
 
 ### 1. Introduction
 
