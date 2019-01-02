@@ -1,4 +1,5 @@
 * Skycoin Blockchain/Wallet Technical Info
+  * [[Coin Hours]]
   * [[Data directory and wallet folder locations]]
   * [[Peer exchange]]
   * [[Skycoin Concepts Guide]]
