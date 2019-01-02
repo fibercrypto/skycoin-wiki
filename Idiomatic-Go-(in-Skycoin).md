@@ -2,6 +2,14 @@
 
 All code should be formatted with [`goimports`](https://godoc.org/golang.org/x/tools/cmd/goimports).  You can configure your text editor to do this automatically on save.  Additionally, the project should have a `Makefile` command called `make format` which formats all of the source with `goimports`.
 
+### Testing
+
+Use the [testify require](https://godoc.org/github.com/stretchr/testify/require) or [testify assert](https://godoc.org/github.com/stretchr/testify/assert) package for assertions.  
+
+Mocking can be done with [testify mock](https://godoc.org/github.com/stretchr/testify/mock).  Use [mockery](https://github.com/vektra/mockery) to autogenerate mocks.
+
+Write [table-driven tests](https://github.com/golang/go/wiki/TableDrivenTests) when appropriate; most tests can be written this way.
+
 ### Variable naming
 
 * Camel case is always used. Do not use underscores or all caps
