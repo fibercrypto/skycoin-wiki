@@ -1,3 +1,7 @@
+### Formatting
+
+All code should be formatted with [`goimports`](https://godoc.org/golang.org/x/tools/cmd/goimports).  You can configure your text editor to do this automatically on save.  Additionally, the project should have a `Makefile` command called `make format` which formats all of the source with `goimports`.
+
 ### Variable naming
 
 * Camel case is always used. Do not use underscores or all caps
