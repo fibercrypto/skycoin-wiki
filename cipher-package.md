@@ -36,15 +36,15 @@ There are two operations
 package main
 
 import (
-  "github.com/skycoin/skycoin/src/cipher" //import cipher package
-  "fmt"     
+    "github.com/skycoin/skycoin/src/cipher"
+    "fmt"     
 )
 
 func main() {
-  var pub cipher.PubKey // a public key
-  var sec cipher.SecKey // a secret key
+    var pub cipher.PubKey 
+    var sec cipher.SecKey
   
-  pub, sec := cipher.GenerateKeyPair() //generate a keypair
+    pub, sec = cipher.GenerateKeyPair()
 }
 ```
 
@@ -52,34 +52,34 @@ Now you can sign messages, encrypt things or generate addresses for receiving co
 
 ## Generating Addresses and Key Pairs
 
-Generate a new public, private key paid
+Generate a new public, private key pair
+
 ```go
-pub,sec := cipher.GenerateKeyPair()
+pub, sec := cipher.GenerateKeyPair()
 ```
 
 Generate a keypair from a pass phrase
+
 ```go
-pub,sec := cipher.GenerateDeterministicKeyPair([]byte("Password")) 
+pub, sec := cipher.MustGenerateDeterministicKeyPair([]byte("bip39 seed")) 
 ```
 
 Generate a skycoin address for a given public key
-```go
-var seckey cipher.SecKey //secret key variable
-var pubkey cipher.PubKey //public key variable
-var addr cipher.Address  //address variable, to store address
 
-pub,sec = GenerateDeterministicKeyPair([]byte("Secret Passphrase")) 
-addr = cipher.AddressFromPubKey(pubkey) //this is the address
+```go
+pub, sec := cipher.GenerateDeterministicKeyPair([]byte("bip39 seed")) 
+addr := cipher.AddressFromPubKey(pub)
 ```
 
-Get address as a base58 encoded string
+Get address as a base58-encoded string
+
 ```go
-addr_str := addr.String()
+addrStr := addr.String()
 ```
 
 Print address, its pubkey and the secret key for the address
 ```go
-log.Printf("address= %s, pubkey= %s,seckey= %s", addr.String(), pubkey.Hex(), seckey.Hex())
+log.Printf("address=%s, pubkey=%s, seckey=%s", addr.String(), pubkey.Hex(), seckey.Hex())
 ```
 
 Load an address from a base58 string
@@ -89,65 +89,66 @@ address := cipher.MustDecodeBase58Address("WyPXrQpAJ7bL6kXZ9ZB6c1p3yUMhBMF7u8")
 
 Load a private key from hex string
 ```go
-seckey := MustSecKeyFromHex("f399bd1b78792da9cc49b1157c73016450c949df565ce3ddbf2f9d65fd8f0dac")
+seckey := cipher.MustSecKeyFromHex("f399bd1b78792da9cc49b1157c73016450c949df565ce3ddbf2f9d65fd8f0dac")
 ```
 
 Load a public key from a hex string
 ```go
-pubkey := MustPubKeyFromHex("03e56ab0597167882813864bd71305660edc128d45ed41ff583b15a44e4e95233f")
+pubkey := cipher.MustPubKeyFromHex("03e56ab0597167882813864bd71305660edc128d45ed41ff583b15a44e4e95233f")
 ```
 
 ## Deterministic Wallet Addresses
 
 To generate N addresses deterministicly from a wallet passphrase or seed, do
 ```go
-N := 16 //generate 16 addresses
-secret_passphrase = []byte("Secret Wallet Passphrase")
-seckeys := cipher.GenerateDeterministicKeyPairs(secret_passphrase)
+n := 16 //generate 16 addresses
+seed = []byte("Secret Wallet Passphrase")
+secKeys := cipher.MustGenerateDeterministicKeyPairs(seed)
 
 //lets print out the addresses for out our private keys in deterministic wallet
-for index, seckey in range seckeys {
-  pubkey := cipher.PubKeyFromSecKey(seckey)
-  addr := cipher.AddressFromPubKey(pubkey)
+for index, secKey in range secKeys {
+  pubKey := cipher.PubKeyFromSecKey(secKey)
+  addr := cipher.AddressFromPubKey(pubKey)
 
-  fmt.Printf("num= %s, address= %s, public_key= %s, secret_key= %s", index, addr.String(), pubkey.Hex(), seckey.Hex())
+  fmt.Printf("num=%s, address=%s, public_key=%s, secret_key=%s\n", index, addr.String(), pubkey.Hex(), seckey.Hex())
 }
 ```
 
 ## Sending an Encrypted Message to Someone
 
 To send an encrypted message
+
 1. Get their public key
-2. Generate a throw-away ephemeral key with, pubkey2,seckey2 := GenerateKeyPair()
-3. Encrypt the message with AES using key, cipher.ECDH(pubkey, seckey2), where pubkey is their key
-4. Append pubkey2 to front of encrypted message so they can decrypt it.
+2. Generate a throw-away ephemeral key with `pubkey2, seckey2 := cipher.GenerateKeyPair()`
+3. Encrypt the message with AES using key, `cipher.ECDH(pubkey, seckey2)`, where pubkey is their key
+4. Append `pubkey2` to front of encrypted message so they can decrypt it.
 5. Deliver the message
 
 To decrypt an encrypted message
-1. Take the first 33 bytes off the front of the message to get pubkey2.
-2. Compute cipher.ECDH(pubkey2, seckey) with your seckey and the pubkey they sent
-3. Decrypt the rest of the message with AES, using cipher.ECDH(pubkey2, seckey) as the key
-4. read the message
 
-Future version will have a simple to use encryption/decryption wrapper. There will also be a gui and it will be easier to use than PGP.
+1. Take the first 33 bytes off the front of the message to get `pubkey2`.
+2. Compute `cipher.ECDH(pubkey2, seckey)` with your seckey and the pubkey they sent
+3. Decrypt the rest of the message with AES, using `cipher.ECDH(pubkey2, seckey)` as the key
+4. Read the message
+
+A future version will have a simple to use encryption/decryption wrapper. There will also be a GUI and it will be easier to use than PGP.
 
 It will also be possible to securely message private keys through Skywire.
 
 ## Signature Operations
 
-
 Sign SHA256 hash of message with private key, return signature 
 
 ```go
-signature := SignHash(hash, seckey)
+signature := cipher.MustSignHash(hash, seckey)
 ```
 
 Verify the signature for the hash
 
 ```go
-err := VerifySignedHash(sig, hash)
+err := cipher.VerifySignedHash(sig, hash)
 if err != nil {
-  log.Printf("Signature invalid!")
+    log.Println("Signature invalid:", err)
 }
 ```
 
@@ -160,65 +161,70 @@ A darkwallet address allows someone with your public key to generate infinite un
 For a darkwallet address, you give someone your public key. They generate a throwaway ephemeral key which is published somewhere (in the blockchain). You both do an operation and get a shared secret. The secret is used to generate a private key which only you two know. The coins are sent to the address for this private key. Both you and the sender have access to the coins and so you then move the coins to a new place.
 
 ```go
-//this is your private/public key pair. You give them the public key
-pubkey1, seckey1 := GenerateDeterministicKeyPair([]byte("Password"))
-//This is their key pair
-pubkey2, seckey2:= GenerateKeyPair()
+// This is your private/public key pair. You give them the public key
+pubkey1, seckey1 := cipher.GenerateDeterministicKeyPair([]byte("Password"))
+// This is their key pair
+pubkey2, seckey2 := cipher.GenerateKeyPair()
 
-//They communicate pubkey2, by for instance using it as the first destination for coins in a transaction
-//You know pubkey2, and seckey1/pubkey1
-//They know your pubkey, pubkey1 and know their seckey seckey2/pubkey2
+// They communicate pubkey2, by for instance using it as the first destination for coins in a transaction
+// You know pubkey2, and seckey1/pubkey1
+// They know your pubkey, pubkey1 and know their seckey seckey2/pubkey2
 
-//You computer 
-//use your private key and the pubkey they gave you
+// Your computer 
+// Use your private key and the pubkey they gave you
 secret1 := cipher.ECDH(pubkey2, seckey1) 
 
-//Their computer
-//They use your pubkey and their private key
+// Their computer
+// They use your pubkey and their private key
 secret2 := cipher.ECDH(pubkey2,seckey1)
 
-//secret1 and secret2 are equal!
-//now you may compute an address from the them
-pubkey, seckey := GenerateDeterministicKeyPair(secret1)
-address := cipher.AddressFromPubkey() //send coins here
+// secret1 and secret2 are equal!
+// Now you may compute an address from the them
+pubkey, seckey := cipher.GenerateDeterministicKeyPair(secret1)
+address := cipher.AddressFromPubkey() // send coins here
 ```
 
 To review:
-- you send them your public key
-- they generate a new public key and send you that
-- you compute ECDH with their public key and your private key
-- they compute ECDH with their private key and your public key
-- the values computed are equal! You now have a shared secret.
-- the shared secret is used to generate an address and only you two know the private key for this address
+
+- You send them your public key
+- They generate a new public key and send you that
+- You compute ECDH with their public key and your private key
+- They compute ECDH with their private key and your public key
+- The values computed are equal! You now have a shared secret.
+- The shared secret is used to generate an address and only you two know the private key for this address
 
 Dark Wallet In Practice
-- you give someone your public key. They can now generate infinite numbers of unused addresses, to send you coins with.
+
+- You give someone your public key. They can now generate infinite numbers of unused addresses, to send you coins with.
 - To send you coin they generate a new pubkey, send the coins they want to send you to the address of that pubkey
-- then they spend the coins from that address into the shared secret address (the dark wallet address)
-- then you look for transactions with one input, one output. You use the public key of input address for ephemeral key.
-- you compute the ECDH for your pubkey against each of these transactions and see if it yields the private-key for the output
-- if the private key works, you claim the coins by moving the coins into your wallet
-- if no one claims the coins after a certain period, the person may spend the coins in the shared address, back into their wallet
+- Then they spend the coins from that address into the shared secret address (the dark wallet address)
+- Then you look for transactions with one input, one output. You use the public key of input address for ephemeral key.
+- You compute the ECDH for your pubkey against each of these transactions and see if it yields the private-key for the output
+- If the private key works, you claim the coins by moving the coins into your wallet
+- If no one claims the coins after a certain period, the person may spend the coins in the shared address, back into their wallet
 
 This achieves dark wallet transactions in three transactions, but guarantees no information is leaked. To achieve it in two transactions, you can choose a convention such as
-- using the pubkey of the address for the first input to the transaction as the ephemeral key
-- or using the public key of the Nth input for the Nth output, as the potential ephemeral key
+
+- Using the pubkey of the address for the first input to the transaction as the ephemeral key
+- Or using the public key of the Nth input for the Nth output, as the potential ephemeral key
 
 However for this you must ensure that the same public key is not reused as the ephemeral key for the same pubkey/dark wallet address or the same address will be generated and information will leak. One solution, is to salt the secret with a hash, such as salting the ECDH secret by the hash of the unspent output consumed.
 
 Another consideration is that dark wallet transactions should be coinjoin compatible. One minimum leakage two-transaction dark wallet protocol is as follows
+
 - You send public key
 - They create transaction with N inputs M outputs. One or more of the outputs is to your darkwallet address.
-- for each unspent output consumed in the transaction, the potential ephemeral pubkeys are the pubkey of the address spending the output.
-- to generate the secret, the ECDH secret is hashed with the unspent output hash. This generates a unique address always. Even if the address the coins are spent from and destination dark-wallet address are jointly repeated.
+- For each unspent output consumed in the transaction, the potential ephemeral pubkeys are the pubkey of the address spending the output.
+- To generate the secret, the ECDH secret is hashed with the unspent output hash. This generates a unique address always. Even if the address the coins are spent from and destination dark-wallet address are jointly repeated.
 - For each transaction with N inputs, you compute the N possible addresses from the ECDH operation plus hash and check the outputs for resulting dark addresses.
 - Without your private key, no one can even determine if dark-wallet transactions even exist within the transaction.
 - The order of the inputs and outputs in the transaction do not matter and therefore it is coinjoin compatible without the coinjoin server doing anything.
 - If there are more dark-outputs than inputs, then we can hash an existing secret to generate a chain of secrets. Then one input can be split into five outputs to dark wallets.
 
 For instance:
-- a user may take 1 input and split it into 3 outputs to your dark wallet address and 2 change outputs (sending coins back to himself)
-- the transaction may be executed in a coin-join transaction so the transactions are mixed in with transactions from other users
+
+- A user may take 1 input and split it into 3 outputs to your dark wallet address and 2 change outputs (sending coins back to himself)
+- The transaction may be executed in a coin-join transaction so the transactions are mixed in with transactions from other users
 - You now have to move the coins from the 3 shared dark-wallet output addresses into a private wallet
 
 For privacy, it is important to note the following. If you spend the 3 shared dark-wallet outputs into the same wallet in a single transaction, it says "All the inputs from this transaction belong to the same wallet/person". So it makes senses to claim the outputs by moving the outputs one at a time, over time, in separate coin-join transaction.
