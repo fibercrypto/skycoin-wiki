@@ -10,6 +10,14 @@ Mocking can be done with [testify mock](https://godoc.org/github.com/stretchr/te
 
 Write [table-driven tests](https://github.com/golang/go/wiki/TableDrivenTests) when appropriate; most tests can be written this way.
 
+### Dependencies
+
+Avoid the compulsive use of external dependencies and frameworks.  Use them judiciously.
+
+### Code reuse
+
+The [DRY principle](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself) is not as strict in Go as it is in e.g. Python.  Go does not always lend itself to DRY.  Sometimes it is okay to copy code, don't overdesign.
+
 ### Directory structure
 
 Follow the Go conventions for directory structure.  This means:
