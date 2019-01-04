@@ -10,6 +10,21 @@ Mocking can be done with [testify mock](https://godoc.org/github.com/stretchr/te
 
 Write [table-driven tests](https://github.com/golang/go/wiki/TableDrivenTests) when appropriate; most tests can be written this way.
 
+### Directory structure
+
+Follow the Go conventions for directory structure.  This means:
+
+* Commands go in `/cmd/`.
+* Library source code, if not at the top-level, goes in `/pkg/`. 
+* Vendored dependencies go in `/vendor/`.
+* Test data files go into a folder named `testdata/` in the relevant package.
+
+Note: github.com/skycoin/skycoin uses `src/` instead of `pkg/` for historical reasons (the decision to use `src/` was made before the Go community standardized on `pkg/`).
+
+### Filenames
+
+Filenames should be lowercase only. Use underscores for multiword filenames.
+
 ### Variable naming
 
 * Camel case is always used. Do not use underscores or all caps
