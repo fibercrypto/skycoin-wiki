@@ -1,3 +1,5 @@
+*See also:* https://github.com/gz-c/skycoin-serialization-benchmarks - Benchmarks of different encoders on a `coin.SignedBlock`
+
 Current benchmark status, after merging of https://github.com/skycoin/skycoin/pull/1915
 
 ```
