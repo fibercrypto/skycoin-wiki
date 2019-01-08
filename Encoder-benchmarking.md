@@ -161,3 +161,7 @@ BenchmarkDecodeZColorGroup-8                   	10000000	       136 ns/op	 102.5
 *[Original issue](https://github.com/skycoin/skycoin/issues/1872)*
 
 *[package encoder](https://github.com/skycoin/skycoin/tree/develop/src/cipher/encoder)*
+
+### Relation to DB operations
+
+The DB storage uses the Sky encoder for objects. Slow deserialization can impact queries and scans. However, after profiling some `visor.Visor` methods, it seems that the reflect-based Sky encoder has only a small contribution to performance.  Therefore, optimizing it further will not show much improvement (unless the profiling data has been misread).
