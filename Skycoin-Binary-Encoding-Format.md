@@ -12,7 +12,7 @@ A description of the format is as follows:
 * Maps are serialized as a sequence of key, value pairs. **NOTE: The use of maps causes the serialized data to be non-deterministic. Do not use where determinism is required**
 * Structs add no overhead
 
-There is no compression of values 
+Varints (as used in protobuf and other serializers) are not used. The encoding is optimized for speed over space, after simplicity and determinism.
 
 The decoder and encoder behavior is specified:
 
