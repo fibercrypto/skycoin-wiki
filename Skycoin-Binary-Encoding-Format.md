@@ -36,7 +36,6 @@ The options are:
 * `omitempty`: Applicable only to a final, variable-length field in a top level struct, the encoder will not write a length prefix if the field is empty. 
   Similarly, the decoder will not return an error if the data buffer stops where an empty `omitempty` field would be.
 
-Variable-length objects (slices, strings and maps) may add a `maxlen=N` 
 
 Implementation Specifics
 ========================
