@@ -1,4 +1,4 @@
-Data sent over the network and data saved to the database is stored in custom binary encoding format.
+Data sent over the network and data saved to the database is stored in a custom binary encoding format.
 
 The goal of the format is to produce deterministic output in a simple manner.
 
