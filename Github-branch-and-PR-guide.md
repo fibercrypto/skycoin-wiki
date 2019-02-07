@@ -3,6 +3,8 @@ Skycoin repos use two branches:
 * master
 * develop
 
+*Note: while in early development, or for minor applications/libraries, a repo might only use a master branch*
+
 The `develop` branch is set to the default branch. All pull requests will have a default target of `develop`, and a freshly cloned repo will clone the `develop` branch.
 
 When the software is ready for a versioned release, the `develop` branch is merged to the `master` branch and a new release is created from the "releases" page. This create a git tag with a version number. All versions should follow [semantic versioning](https://semver.org), the essential part being that all version tags follow the format `vMAJOR.MINOR.PATCH`.
