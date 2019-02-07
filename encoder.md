@@ -1,1 +1,0 @@
-TODO document skycoin binary encoder
