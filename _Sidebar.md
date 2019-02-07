@@ -9,7 +9,7 @@
   * [[Wire Protocol]]
   * [[Wire protocol user agent]]
   * [[cipher package]]
-  * [[encoder]]
+  * [[Skycoin Binary Encoding Format]]
 * Skycoin Blockchain/Wallet Development Guides
   * [[Adding a new API endpoint]]
   * [[Encoder benchmarking]]
