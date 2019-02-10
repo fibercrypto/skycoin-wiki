@@ -16,6 +16,6 @@ Adding an API set:
 
 * Define new API set name in `api/http.go`
 * Add to `allAPISetsEnabled` in `api/http_test.go`
-* Add to `allAPISets` (two instances) in `skycoin/skycoin.go`
-* Update documentation for the CLI options in `skycoin/skycoin.go`
+* Add to `allAPISets` (two instances) in `skycoin/config.go`
+* Update documentation for the CLI options in `skycoin/config.go`
 * Update documentation of API sets in `api/README.md`
