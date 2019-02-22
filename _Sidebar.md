@@ -15,6 +15,7 @@
   * [[Encoder benchmarking]]
   * [[Running multiple nodes locally isolated for manual testing]]
 * Developer Guides \(All Skycoin Repos\)
+  * [[Go Resources]]
   * [[Github branch and PR guide]]
   * [[Idiomatic Go (in Skycoin)]]
   * [[Dependency management in Skycoin]]
