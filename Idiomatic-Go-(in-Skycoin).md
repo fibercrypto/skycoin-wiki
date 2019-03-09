@@ -2,7 +2,7 @@
 
 All code should be formatted with [`goimports`](https://godoc.org/golang.org/x/tools/cmd/goimports).  You can configure your text editor to do this automatically on save.  Additionally, the project should have a `Makefile` command called `make format` which formats all of the source with `goimports`.
 
-All files should end with a newline character.
+All files should end with a newline character. There should be no trailing whitespace on any line.  This applies to all files, not just `.go` files, in a repository.
 
 ### Testing
 
