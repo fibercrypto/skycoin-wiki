@@ -9,6 +9,7 @@
   * [[Wire Protocol]]
   * [[Wire protocol user agent]]
   * [[cipher package]]
+  * [[RNG Hardening]]
   * [[Skycoin Binary Encoding Format]]
 * Skycoin Blockchain/Wallet Development Guides
   * [[Adding a new API endpoint]]
