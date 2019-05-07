@@ -18,3 +18,7 @@
 
 * [Writing Table-Driven Tests in Go](https://dave.cheney.net/2013/06/09/writing-table-driven-tests-in-go)
 * [How to write benchmarks in Go](https://dave.cheney.net/2013/06/30/how-to-write-benchmarks-in-go)
+
+#### Optimization
+
+* [Go-Perfbook: Best practices for writing high-performance Go code](https://github.com/dgryski/go-perfbook)
