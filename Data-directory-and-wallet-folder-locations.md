@@ -4,7 +4,7 @@ Wallets are saved in a `wallets/` folder inside the data directory.
 
 ### Windows
   * `C:\.skycoin` when running in development mode (i.e. running from source)
-  * `C:\Users\{user}\.skycoin` for production builds
+  * `%HOMEPATH%\.skycoin` aka `C:\Users\{user}\.skycoin` for production builds
 
 ### OS X / macOS
   * `~/.skycoin` aka `/Users/{user}/.skycoin`
