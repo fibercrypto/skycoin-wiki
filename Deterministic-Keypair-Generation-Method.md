@@ -34,7 +34,9 @@ Using the previous definitions, define the generation method `X` as:
 Pseudocode to generate a chain of keys from a seed:
 
 ```
-seed = sha256("foo bar baz quz qux")  # use something with higher entropy. initial seed can be any arbitrary bytes
+# initial seed can be any arbitrary bytes
+# use something with higher entropy
+seed = sha256("foo bar baz quz qux")  
 var secKeys[10]
 for i = 0; i < 10; i++ {
   secKeys[i], seed = X(seed)
