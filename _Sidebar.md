@@ -12,6 +12,7 @@
   * [[RNG Hardening]]
   * [[Skycoin Binary Encoding Format]]
   * [[Wallet File Formats and Types]]
+  * [[Deterministic Keypair Generation Method]]
 * Skycoin Blockchain/Wallet Development Guides
   * [[Adding a new API endpoint]]
   * [[Encoder benchmarking]]
