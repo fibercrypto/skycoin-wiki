@@ -99,6 +99,8 @@ pubkey := cipher.MustPubKeyFromHex("03e56ab0597167882813864bd71305660edc128d45ed
 
 ## Deterministic Wallet Addresses
 
+Read the [[Deterministic Keypair Generation Method]] for the details on the deterministic keypair generator.
+
 To generate N addresses deterministicly from a wallet passphrase or seed, do
 ```go
 n := 16 //generate 16 addresses
