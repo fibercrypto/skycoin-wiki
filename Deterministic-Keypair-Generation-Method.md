@@ -35,7 +35,7 @@ Pseudocode to generate a chain of keys from a seed:
 
 ```
 # initial seed can be any arbitrary bytes
-# use something with higher entropy
+# use something with at least 128 bits of entropy
 seed = sha256("foo bar baz quz qux")  
 var secKeys[10]
 for i = 0; i < 10; i++ {
