@@ -30,6 +30,22 @@ There are two operations
 - encryption: Anyone who knows your public key can encrypt data, so that only you can read it (or anyone who knows the secret private key).
 - signatures: You can sign data with your private key and anyone can verify that only the person knowing the private key could have produced the signature. This is how Bitcoin/Skycoin transactions are authorized. The person who knows the private key for an address, "owns" the Bitcoin, in that they are able to authorize transactions by signing them.
 
+## Skycoin private keys
+
+Skycoin private keys are the same as Bitcoin private keys - a 256bit number on the secp256k1 curve. All 256-bit cryptographic numbers are serialized as big-endian.
+
+## Skycoin public keys
+
+Skycoin public keys are always 33 byte compressed public keys. The first byte is `0x03` if the `Y` point is odd, or `0x02` if the `Y` point is even.  The next 32 bytes are the big-endian `X` point.
+
+## Skycoin Signatures
+
+Skycoin uses compact recoverable signatures. The compactness defines its encoding and the recoverability is so the public key can be recovered from the signature itself for verification.  This is the only signature format used in Skycoin.
+
+Skycoin signatures are 65 bytes. The first 64 bytes is the big-endian serialized `R, S` point.  Y is always a "low S" point to prevent signature malleability attacks.  The last byte is a "recovery id", which allows a public key to be recovered from the signature given an sha256 hash digest (or any 32 byte array). See [BIP146](https://github.com/bitcoin/bips/blob/master/bip-0146.mediawiki) for more details on "low S" signatures.  The recovery id is some value `0 <= r <= 4`
+
+Skycoin does not use DER or ASN.1 encoding.
+
 ## This is how the package is used
 
 ```go
@@ -101,7 +117,7 @@ pubkey := cipher.MustPubKeyFromHex("03e56ab0597167882813864bd71305660edc128d45ed
 
 Read the [[Deterministic Keypair Generation Method]] for the details on the deterministic keypair generator.
 
-To generate N addresses deterministicly from a wallet passphrase or seed, do
+To generate N addresses deterministically from a wallet passphrase or seed, do
 ```go
 n := 16 //generate 16 addresses
 seed = []byte("Secret Wallet Passphrase")
@@ -145,16 +161,14 @@ Sign SHA256 hash of message with private key, return signature
 signature := cipher.MustSignHash(hash, seckey)
 ```
 
-Verify the signature for the hash
+Verify the signature for the hash, given a pubkey
 
 ```go
-err := cipher.VerifySignedHash(sig, hash)
+err := cipher.VerifyPubKeySignedHash(pubkey, sig, hash)
 if err != nil {
     log.Println("Signature invalid:", err)
 }
 ```
-
-We use compressed signatures, so the public key can be recovered from the signature itself.
 
 ## Darkwallet Addresses
 
