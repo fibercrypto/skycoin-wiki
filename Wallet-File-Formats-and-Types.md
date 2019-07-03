@@ -30,6 +30,8 @@ Deterministic wallets use Skycoin's custom [[deterministic keypair generation me
 
 Deterministic wallets can be created and managed from the web UI.
 
+Keypairs are saved as an array in an `entries` field in the wallet JSON data. A deterministic wallet with an empty or missing `entries` array is invalid.
+
 #### How to manage a deterministic wallet from the cli
 
 *Note: do not perform cli operations on a wallet file while it is loaded in the Skycoin daemon or client wallet software, as this can cause data loss*
@@ -45,6 +47,8 @@ go run cmd/cli/cli.go walletAddAddresses -n 10
 ### Collection Wallets
 
 Collection wallets are an arbitrary collection of private keys. Their type string is "collection".  A collection wallet does not have a seed and thus cannot generate new private keys automatically. Private keys can only be added manually. The lack of a seed also implies that if the wallet is encrypted and the password is lost, the private keys in the collection cannot be recovered.
+
+Keypairs are saved as an array in an `entries` field in the wallet JSON data. Collection wallets may have an empty `entries` array.
 
 Collection wallets can't be created through the UI but can be created through the cli.
 
