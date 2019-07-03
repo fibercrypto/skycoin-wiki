@@ -11,6 +11,7 @@
   * [[cipher package]]
   * [[RNG Hardening]]
   * [[Skycoin Binary Encoding Format]]
+  * [[Wallet File Formats and Types]]
 * Skycoin Blockchain/Wallet Development Guides
   * [[Adding a new API endpoint]]
   * [[Encoder benchmarking]]
