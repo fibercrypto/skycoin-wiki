@@ -6,7 +6,11 @@
 
 * [A Tour of Go](https://tour.golang.org/welcome/1)
 * [Go By Example](https://gobyexample.com)
+
+### Comprehensive
+
 * [Effective Go](https://golang.org/doc/effective_go.html)
+* [Learn Go with Tests](https://quii.gitbook.io/learn-go-with-tests/)
 
 ### Post-introductory
 
