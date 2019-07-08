@@ -27,7 +27,7 @@ The wallet file's `"meta"` field object has the following fields:
 
 ### Skycoin deterministic Wallets
 
-Skycoin deterministic wallets have the type `deterministic` and use Skycoin's custom [[deterministic keypair generation method]].  From an initial seed, the wallet will generate a single chain of private keys indefinitely.  The deterministic generation method does not support arbitrary indexing like bip44.
+Skycoin deterministic wallets have the type `deterministic` and use Skycoin's custom [[deterministic keypair generation method]].  From an initial seed, the wallet will generate a single chain of private keys indefinitely.  The seed can be any arbitrary array of bytes, but typically it is a bip39 mnemonic as bytes. The deterministic generation method does not support arbitrary indexing like bip44.
 
 Skycoin deterministic wallets can be created and managed from the web UI.
 
@@ -50,7 +50,7 @@ go run cmd/cli/cli.go walletAddAddresses -f mywallet.wlt -n 10
 
 ### BIP44 Wallets
 
-BIP44 wallets have the type `bip44` and implement the [bip44 HD (hierarchical deterministic) wallet spec](https://github.com/bitcoin/bips/blob/master/bip-0044.mediawiki).  From a single [BIP39 mnemonic seed](https://github.com/bitcoin/bips/blob/master/bip-0039.mediawiki) and an optional ["seed passphrase"](https://github.com/bitcoin/bips/blob/master/bip-0039.mediawiki#from-mnemonic-to-seed), two sequences of up to 4294967295 keypairs each can be generated. The first sequence is called "external" and is intended for receiving coins publicly. The second sequence is called "change"; it is internal, and is used for change addresses. When spending from a `bip44` wallet, a new change address is generated for each transaction to avoid [address reuse](https://en.bitcoin.it/wiki/Address_reuse).
+BIP44 wallets have the type `bip44` and implement the [bip44 HD (hierarchical deterministic) wallet spec](https://github.com/bitcoin/bips/blob/master/bip-0044.mediawiki).  From a valid [BIP39 mnemonic seed](https://github.com/bitcoin/bips/blob/master/bip-0039.mediawiki) and an optional ["seed passphrase"](https://github.com/bitcoin/bips/blob/master/bip-0039.mediawiki#from-mnemonic-to-seed), two sequences of up to 4294967295 keypairs each can be generated. The first sequence is called "external" and is intended for receiving coins publicly. The second sequence is called "change"; it is internal, and is used for change addresses. When spending from a `bip44` wallet, a new change address is generated for each transaction to avoid [address reuse](https://en.bitcoin.it/wiki/Address_reuse).
 
 Skycoin does not implement the "account" feature of BIP44 wallets. The "account" node number is always 0.
 
