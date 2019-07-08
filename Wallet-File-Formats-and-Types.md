@@ -20,7 +20,7 @@ The wallet file's `"meta"` field object has the following fields:
 * `seed`: the initial seed for a `deterministic` type wallet.
 * `seedPassphrase`: The [bip39 seed passphrase](https://github.com/bitcoin/bips/blob/master/bip-0039.mediawiki#from-mnemonic-to-seed). Not required, but only used for `bip44` wallets.
 * `tm`: the creation timestamp of the wallet
-* `type`: Required. Can be `collection` or `deterministic`. Refers to the way keys are managed by the wallet.
+* `type`: Required. Can be `collection`, `deterministic` or `bip44`. Refers to the way keys are managed by the wallet.
 * `version`: The wallet metadata version.  Current version is `0.2` which added encryption support.
 
 ## Wallet types
