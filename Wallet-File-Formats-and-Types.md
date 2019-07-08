@@ -18,35 +18,60 @@ The wallet file's `"meta"` field object has the following fields:
 * `lastSeed`: the last seed created by a `deterministic` type wallet.  Required for unencrypted `deterministic` wallets, but should be empty for any other type of wallet
 * `secrets`: An encrypted JSON string, containing the wallet's secret data (seed, lastSeed, and private keys)
 * `seed`: the initial seed for a `deterministic` type wallet.
+* `seedPassphrase`: The [bip39 seed passphrase](https://github.com/bitcoin/bips/blob/master/bip-0039.mediawiki#from-mnemonic-to-seed). Not required, but only used for `bip44` wallets.
 * `tm`: the creation timestamp of the wallet
 * `type`: Required. Can be `collection` or `deterministic`. Refers to the way keys are managed by the wallet.
 * `version`: The wallet metadata version.  Current version is `0.2` which added encryption support.
 
 ## Wallet types
 
-### Deterministic Wallets
+### Skycoin deterministic Wallets
 
-Deterministic wallets use Skycoin's custom [[deterministic keypair generation method]].  From an initial seed, the wallet will generate a single chain of private keys indefinitely.  The deterministic generation method does not support arbitrary indexing like bip44.
+Skycoin deterministic wallets have the type `deterministic` and use Skycoin's custom [[deterministic keypair generation method]].  From an initial seed, the wallet will generate a single chain of private keys indefinitely.  The deterministic generation method does not support arbitrary indexing like bip44.
 
-Deterministic wallets can be created and managed from the web UI.
+Skycoin deterministic wallets can be created and managed from the web UI.
 
 Keypairs are saved as an array in an `entries` field in the wallet JSON data. A deterministic wallet with an empty or missing `entries` array is invalid.
+
+A `deterministic` type wallet file with no entries is invalid and will not be loaded by the software.
 
 #### How to manage a deterministic wallet from the cli
 
 *Note: do not perform cli operations on a wallet file while it is loaded in the Skycoin daemon or client wallet software, as this can cause data loss*
 
 ```sh
-# create an empty deterministic wallet
+# create a deterministic wallet
+# the wallet will have 1 address by default; it cannot be empty
 # use `walletCreate --help` for more options
 go run cmd/cli/cli.go walletCreate -t deterministic -f mywallet.wlt --encrypt
 # generate more addresses
-go run cmd/cli/cli.go walletAddAddresses -n 10
+go run cmd/cli/cli.go walletAddAddresses -f mywallet.wlt -n 10
+```
+
+### BIP44 Wallets
+
+BIP44 wallets have the type `bip44` and implement the [bip44 HD (hierarchical deterministic) wallet spec](https://github.com/bitcoin/bips/blob/master/bip-0044.mediawiki).  From a single [BIP39 mnemonic seed](https://github.com/bitcoin/bips/blob/master/bip-0039.mediawiki) and an optional ["seed passphrase"](https://github.com/bitcoin/bips/blob/master/bip-0039.mediawiki#from-mnemonic-to-seed), two sequences of up to 4294967295 keypairs each can be generated. The first sequence is called "external" and is intended for receiving coins publicly. The second sequence is called "change"; it is internal, and is used for change addresses. When spending from a `bip44` wallet, a new change address is generated for each transaction to avoid [address reuse](https://en.bitcoin.it/wiki/Address_reuse).
+
+Skycoin does not implement the "account" feature of BIP44 wallets. The "account" node number is always 0.
+
+Skycoin does not have a BIP44 `coin_type` assigned in https://github.com/satoshilabs/slips/blob/master/slip-0044.md yet, but is using `8000` while in development.
+
+A `bip44` type wallet file with no entries in its external chain is invalid and will not be loaded by the software.
+
+#### How to manage a bip44 wallet from the CLI
+
+```sh
+# create a bip44 wallet
+# the wallet will have 1 address by default; its external chain cannot be empty
+# use `walletCreate --help` for more options
+go run cmd/cli/cli.go walletCreate -t bip44 -f mywallet.wlt --encrypt
+# generate more addresses
+go run cmd/cli/cli.go walletAddAddresses -f mywallet.wlt -n 10
 ```
 
 ### Collection Wallets
 
-Collection wallets are an arbitrary collection of private keys. Their type string is "collection".  A collection wallet does not have a seed and thus cannot generate new private keys automatically. Private keys can only be added manually. The lack of a seed also implies that if the wallet is encrypted and the password is lost, the private keys in the collection cannot be recovered.
+Collection wallets have the type `collection` and are an arbitrary collection of private keys. Their type string is "collection".  A collection wallet does not have a seed and thus cannot generate new private keys automatically. Private keys can only be added manually. The lack of a seed also implies that if the wallet is encrypted and the password is lost, the private keys in the collection cannot be recovered.
 
 Keypairs are saved as an array in an `entries` field in the wallet JSON data. Collection wallets may have an empty `entries` array.
 
