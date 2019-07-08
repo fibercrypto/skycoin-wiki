@@ -56,6 +56,8 @@ Skycoin does not implement the "account" feature of BIP44 wallets. The "account"
 
 Skycoin does not have a BIP44 `coin_type` assigned in https://github.com/satoshilabs/slips/blob/master/slip-0044.md yet, but is using `8000` while in development.
 
+Keypairs are saved in two separate arrays in the JSON file on disk: `external_entries` and `change_entries`.  However, in APIs, the two arrays are combined into a single `entries` array. Each element in the array has `child_number`, indicating the bip44 path leaf node number, and `change`, which can be `0` or `1`, where `0` is the external chain and `1` is the `change` chain.
+
 A `bip44` type wallet file with no entries in its external chain is invalid and will not be loaded by the software.
 
 #### How to manage a bip44 wallet from the CLI
