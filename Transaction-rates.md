@@ -15,7 +15,7 @@ The block size is configurable. It is currently set to 32786 bytes (32kB).  The 
 
 ## Block rate
 
-The block rate is configurable. It is current set at 10 seconds.  Every 10 seconds, pending transactions from the unconfirmed transaction pool are chosen to be placed into a block, based upon a priority criteria.
+The block rate is configurable. It is currently set at 10 seconds.  Every 10 seconds, pending transactions from the unconfirmed transaction pool are chosen to be placed into a block, based upon a priority criteria.
 
 ## Transaction rate
 
