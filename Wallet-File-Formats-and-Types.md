@@ -20,7 +20,7 @@ The wallet file's `"meta"` field object has the following fields:
 * `seed`: the initial seed for a `deterministic` type wallet.
 * `seedPassphrase`: The [bip39 seed passphrase](https://github.com/bitcoin/bips/blob/master/bip-0039.mediawiki#from-mnemonic-to-seed). Not required, but only used for `bip44` wallets.
 * `tm`: the creation timestamp of the wallet
-* `type`: Required. Can be `collection`, `deterministic` or `bip44`. Refers to the way keys are managed by the wallet.
+* `type`: Required. Can be `collection`, `deterministic`, `bip44` or `xpub`. Refers to the way keys are managed by the wallet.
 * `version`: The wallet metadata version.  Current version is `0.2` which added encryption support.
 
 ## Wallet types
@@ -70,6 +70,21 @@ go run cmd/cli/cli.go walletCreate -t bip44 -f mywallet.wlt --encrypt
 # generate more addresses
 go run cmd/cli/cli.go walletAddAddresses -f mywallet.wlt -n 10
 ```
+
+### XPub Watch Wallets
+
+XPub watch wallets have the type `xpub`. The wallet is configured with a single "xpub" (extended public) key.
+An xpub key can be exported from a `bip44` wallet using the CLI command `walletKeyExport`.
+
+`xpub` wallets can generate new addresses to receive coins or monitor balances, but cannot spend from these addresses. This enables better security for exchange and payments systems integrations, because the "hot" wallet can generate new addresses for deposits or customer payments, without exposing the private keys of that wallet on a live server.
+
+*Warning: Avoid sharing xpub keys. See https://en.bitcoin.it/wiki/Deterministic_wallet_tools#Risks_of_Sharing_an_Extended_Public_Key_.28xpub.29*
+
+More information about xpub keys:
+
+* https://en.bitcoin.it/wiki/Deterministic_wallet_tools#Risks_of_Sharing_an_Extended_Public_Key_.28xpub.29
+* https://github.com/bitcoin/bips/blob/master/bip-0032.mediawiki
+* https://support.blockchain.com/hc/en-us/articles/360000939843-Understanding-the-xPub-and-address-generation
 
 ### Collection Wallets
 
