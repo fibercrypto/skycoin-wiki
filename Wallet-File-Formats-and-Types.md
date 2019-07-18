@@ -78,6 +78,8 @@ An xpub key can be exported from a `bip44` wallet using the CLI command `walletK
 
 `xpub` wallets can generate new addresses to receive coins or monitor balances, but cannot spend from these addresses. This enables better security for exchange and payments systems integrations, because the "hot" wallet can generate new addresses for deposits or customer payments, without exposing the private keys of that wallet on a live server.
 
+See https://github.com/skycoin/skycoin/blob/develop/INTEGRATION.md#xpub-wallets for instructions on how to set up an `xpub` wallet.
+
 *Warning: Avoid sharing xpub keys. See https://en.bitcoin.it/wiki/Deterministic_wallet_tools#Risks_of_Sharing_an_Extended_Public_Key_.28xpub.29*
 
 More information about xpub keys:
