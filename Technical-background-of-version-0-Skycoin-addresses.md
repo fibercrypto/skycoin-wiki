@@ -1,3 +1,16 @@
+## Verify a Skycoin Addresses
+
+**Golang:** 
+- Use the `cipher.DecodeBase58Address` from `package cipher`: https://godoc.org/github.com/skycoin/skycoin/src/cipher#DecodeBase58Address
+
+**Python:** 
+- Use [pyskycoin](https://github.com/skycoin/pyskycoin). The function is `skycoin.cipher__DecodeBase58Address`.
+
+**Javascript/other languages:** 
+- You can make a `POST` request to https://node.skycoin.net/api/v2/address/verify (or use any Skycoin API node of your choice). See https://github.com/skycoin/skycoin/blob/develop/src/api/README.md#verify-an-address for the API docs
+- Make language bindings to [libskycoin](https://github.com/skycoin/libskycoin)
+- Construct a validator in the native language (requires these libraries: sha256, ripemd160, base58).
+
 ## Differences between Skycoin and Bitcoin addresses
 
 Skycoin addresses are similar version 1 Bitcoin addresses, with these differences:
