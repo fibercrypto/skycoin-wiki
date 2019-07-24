@@ -1,4 +1,4 @@
-## Verify a Skycoin Addresses
+## How to Validate a Skycoin Address
 
 **Golang:** 
 - Use the `cipher.DecodeBase58Address` from `package cipher`: https://godoc.org/github.com/skycoin/skycoin/src/cipher#DecodeBase58Address
