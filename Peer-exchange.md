@@ -2,7 +2,7 @@
 
 The Skycoin client has a set of hardcoded peers to bootstrap from. The client will try to maintain one connection to at most one of these peers. These peers are labelled `"trusted"` in the network status APIs.
 
-With `-downloads-peerlist`, the client also downloads a list of peers from https://downloads.skycoin.net/blockchain/peers.txt.  All peers in this file should have their listen port open to receive connections.
+With `-downloads-peerlist`, the client also downloads a list of peers from https://downloads.skycoin.com/blockchain/peers.txt.  All peers in this file should have their listen port open to receive connections.
 
 Custom peers can be loaded from disk with `-custom-peers-file`.
 

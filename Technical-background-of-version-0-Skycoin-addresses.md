@@ -1,13 +1,13 @@
 ## How to Validate a Skycoin Address
 
-**Golang:** 
+**Golang:**
 - Use the `cipher.DecodeBase58Address` from `package cipher`: https://godoc.org/github.com/skycoin/skycoin/src/cipher#DecodeBase58Address
 
-**Python:** 
+**Python:**
 - Use [pyskycoin](https://github.com/skycoin/pyskycoin). The function is `skycoin.cipher__DecodeBase58Address`.
 
-**Javascript/other languages:** 
-- You can make a `POST` request to https://node.skycoin.net/api/v2/address/verify (or use any Skycoin API node of your choice). See https://github.com/skycoin/skycoin/blob/develop/src/api/README.md#verify-an-address for the API docs
+**Javascript/other languages:**
+- You can make a `POST` request to https://node.skycoin.com/api/v2/address/verify (or use any Skycoin API node of your choice). See https://github.com/skycoin/skycoin/blob/develop/src/api/README.md#verify-an-address for the API docs
 - Make language bindings to [libskycoin](https://github.com/skycoin/libskycoin)
 - Construct a validator in the native language (requires these libraries: sha256, ripemd160, base58).
 
@@ -45,11 +45,11 @@ Hash values and the checksum data are converted to an alpha-numeric representati
     `03a4e90c34b9f359364b01f2136f1ff850d648d56da2f4b4aed6cbb6fede346831`
 
 2. Perform SHA-256 hashing on the public key
-    
+
     `e6958adc2f9f3260b269d14842bde2e3da9dad93d310c9dab547a547e60fe885`
 
 3. Perform SHA-256 hashing on the result of the previous SHA-256 hash
-    
+
     `a8015a9b10fd68c55539a4fee83e9976b0efe808c6666780f9d30ae8c80be1fd`
 
 4. Perform RIPEMD-160 hashing on the result of SHA-256
